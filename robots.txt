@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /brand-design-system.html
+
+Sitemap: https://themuscleengineer.com/sitemap.xml
