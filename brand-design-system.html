@@ -1,0 +1,5328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brand &amp; Design System | The Muscle Engineer</title>
+    <meta
+      name="description"
+      content="The Muscle Engineer brand and design system — brand story, logo law, colour, typography, components, voice, social kit and web standards. Single source of truth for all teams."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="The Muscle Engineer" />
+    <meta
+      property="og:title"
+      content="Brand &amp; Design System | The Muscle Engineer"
+    />
+    <meta
+      property="og:description"
+      content="Every visual, verbal and technical decision that forms The Muscle Engineer brand. For developers, designers, social teams and partners."
+    />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="icon" type="image/png" href="logo-1.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ============================================================
+   THE MUSCLE ENGINEER — Brand & Design System v1.0
+   This document is built in the brand it documents.
+   Palette: Engine Red #E8221A · Black #050505 · White #F8F8F6
+   ============================================================ */
+      :root {
+        --red: #e8221a;
+        --red-dark: #c01a14;
+        --red-dim: rgba(232, 34, 26, 0.1);
+        --black: #050505;
+        --ink: #0d0d0d;
+        --dark: #161616;
+        --mid: #222222;
+        --white: #f8f8f6;
+        --white-dim: rgba(248, 248, 246, 0.65);
+        --white-mute: rgba(248, 248, 246, 0.28);
+        --bebas: "Bebas Neue", Impact, "Arial Narrow", sans-serif;
+        --inter: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        --mono: "Space Mono", "Courier New", monospace;
+        --nav-h: 72px;
+        --ease: cubic-bezier(0.22, 0.86, 0.36, 1);
+      }
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 88px;
+      }
+      body {
+        font-family: var(--inter);
+        font-weight: 400;
+        background: var(--black);
+        color: var(--white);
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+        cursor: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+        cursor: none;
+      }
+      button {
+        font-family: inherit;
+        cursor: none;
+      }
+      input,
+      textarea,
+      select {
+        cursor: text;
+      }
+      select {
+        cursor: none;
+      }
+      ::selection {
+        background: var(--red);
+        color: var(--white);
+      }
+      ::-webkit-scrollbar {
+        width: 11px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--ink);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--mid);
+        border: 3px solid var(--ink);
+        border-radius: 8px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--red);
+      }
+      :focus-visible {
+        outline: 2px solid var(--red);
+        outline-offset: 3px;
+      }
+
+      /* ---------- layout primitives ---------- */
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 clamp(1.5rem, 5vw, 2.5rem);
+      }
+      section {
+        position: relative;
+      }
+      .sec-label {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.34em;
+        text-transform: uppercase;
+        color: var(--red);
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 18px;
+      }
+      .sec-label::before {
+        content: "";
+        width: 34px;
+        height: 1px;
+        background: var(--red);
+        flex: none;
+      }
+      .h2 {
+        font-family: var(--bebas);
+        font-size: clamp(2.6rem, 5.4vw, 4.4rem);
+        line-height: 0.96;
+        letter-spacing: 0.015em;
+        font-weight: 400;
+        text-transform: uppercase;
+      }
+      .t-red {
+        color: var(--red);
+      }
+      .t-outline {
+        color: transparent;
+        -webkit-text-stroke: 1.5px var(--white);
+        text-stroke: 1.5px var(--white);
+      }
+      .t-outline-red {
+        color: transparent;
+        -webkit-text-stroke: 1.5px var(--red);
+        text-stroke: 1.5px var(--red);
+      }
+      .lead {
+        color: var(--white-dim);
+        font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+        font-weight: 300;
+      }
+
+      /* ---------- shared icon sizing ---------- */
+      .ic {
+        width: 22px;
+        height: 22px;
+        flex: none;
+      }
+      .ic-s {
+        width: 16px;
+        height: 16px;
+        flex: none;
+      }
+
+      /* ---------- image fallback boxes ---------- */
+      .imgbox {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(150deg, var(--dark) 0%, var(--ink) 100%);
+      }
+      .imgbox::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23E8221A' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14.4 14.4 9.6 9.6'/%3E%3Cpath d='M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829z'/%3E%3Cpath d='m21.5 21.5-1.4-1.4'/%3E%3Cpath d='M3.9 3.9 2.5 2.5'/%3E%3Cpath d='M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 56px;
+        opacity: 0.35;
+      }
+      .imgbox img {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* ---------- buttons ---------- */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font-family: var(--mono);
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        padding: 17px 30px;
+        border: none;
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.28s var(--ease), box-shadow 0.28s var(--ease),
+          background 0.28s, color 0.28s, border-color 0.28s;
+        white-space: nowrap;
+      }
+      .btn .ic-s {
+        transition: transform 0.28s var(--ease);
+      }
+      .btn:hover .ic-s {
+        transform: translateX(4px);
+      }
+      .btn-red {
+        background: var(--red);
+        color: var(--white);
+        clip-path: polygon(
+          0 0,
+          100% 0,
+          100% calc(100% - 13px),
+          calc(100% - 13px) 100%,
+          0 100%
+        );
+      }
+      .btn-red::before {
+        /* shimmer sweep */
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 60%;
+        height: 100%;
+        background: linear-gradient(
+          105deg,
+          transparent 0%,
+          rgba(248, 248, 246, 0.28) 50%,
+          transparent 100%
+        );
+        transition: left 0.55s var(--ease);
+        pointer-events: none;
+      }
+      .btn-red:hover {
+        background: var(--red-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(232, 34, 26, 0.3);
+      }
+      .btn-red:hover::before {
+        left: 140%;
+      }
+      .btn-ghost {
+        background: transparent;
+        color: var(--white);
+        border: 1px solid var(--mid);
+      }
+      .btn-ghost:hover {
+        border-color: var(--red);
+        color: var(--red);
+        transform: translateY(-2px);
+      }
+      .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(248, 248, 246, 0.45);
+        width: 6px;
+        height: 6px;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        animation: ripple 0.55s ease-out forwards;
+      }
+      @keyframes ripple {
+        0% {
+          width: 6px;
+          height: 6px;
+          opacity: 1;
+        }
+        100% {
+          width: 130px;
+          height: 130px;
+          opacity: 0;
+        }
+      }
+
+      /* ---------- custom cursor ---------- */
+      #cursor-dot,
+      #cursor-ring {
+        position: fixed;
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+      }
+      #cursor-dot {
+        width: 8px;
+        height: 8px;
+        background: var(--red);
+      }
+      #cursor-ring {
+        width: 34px;
+        height: 34px;
+        border: 1.5px solid var(--red);
+        transition: width 0.25s var(--ease), height 0.25s var(--ease),
+          background 0.25s, opacity 0.3s;
+      }
+      #cursor-ring.is-hover {
+        width: 56px;
+        height: 56px;
+        background: rgba(232, 34, 26, 0.06);
+      }
+      body.cursor-hidden #cursor-dot,
+      body.cursor-hidden #cursor-ring {
+        opacity: 0;
+      }
+
+      /* ---------- scroll reveal ---------- */
+      .reveal,
+      .reveal-l,
+      .reveal-r {
+        opacity: 0;
+        transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+        will-change: opacity, transform;
+      }
+      .reveal {
+        transform: translateY(28px);
+      }
+      .reveal-l {
+        transform: translateX(-30px);
+      }
+      .reveal-r {
+        transform: translateX(30px);
+      }
+      .in {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+      .delay-1 {
+        transition-delay: 0.1s;
+      }
+      .delay-2 {
+        transition-delay: 0.2s;
+      }
+      .delay-3 {
+        transition-delay: 0.3s;
+      }
+      .delay-4 {
+        transition-delay: 0.4s;
+      }
+      .delay-5 {
+        transition-delay: 0.5s;
+      }
+      .delay-6 {
+        transition-delay: 0.6s;
+      }
+      .delay-7 {
+        transition-delay: 0.7s;
+      }
+      .delay-8 {
+        transition-delay: 0.8s;
+      }
+
+      /* ============================================================
+   NAVBAR
+   ============================================================ */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        height: var(--nav-h);
+        display: flex;
+        align-items: center;
+        background: transparent;
+        transition: background 0.4s, height 0.35s var(--ease), border-color 0.4s,
+          backdrop-filter 0.4s;
+        border-bottom: 1px solid transparent;
+      }
+      .nav.scrolled {
+        height: 60px;
+        background: rgba(5, 5, 5, 0.95);
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--mid);
+      }
+      .nav-inner {
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 clamp(1.5rem, 5vw, 2.5rem);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex: none;
+      }
+      .brand img {
+        width: 42px;
+        height: 42px;
+        object-fit: contain;
+      }
+      .brand-name {
+        font-family: var(--bebas);
+        font-size: 1.35rem;
+        letter-spacing: 0.09em;
+        line-height: 1;
+        padding-top: 3px;
+      }
+      .brand-name em {
+        font-style: normal;
+        color: var(--red);
+      }
+      .brand-name sup {
+        color: var(--red);
+        font-size: 0.75em;
+        vertical-align: super;
+        margin-left: 2px;
+        font-family: var(--inter);
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        list-style: none;
+      }
+      .nav-links a {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--white-dim);
+        position: relative;
+        padding: 6px 0;
+        transition: color 0.25s;
+      }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background: var(--red);
+        transition: width 0.3s var(--ease);
+      }
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--white);
+      }
+      .nav-links a:hover::after,
+      .nav-links a.active::after {
+        width: 100%;
+      }
+      .nav-cta {
+        padding: 13px 22px;
+        font-size: 0.7rem;
+      }
+      .burger {
+        display: none;
+        background: none;
+        border: none;
+        width: 44px;
+        height: 44px;
+        position: relative;
+        z-index: 1300;
+        color: var(--white);
+      }
+      .burger svg {
+        width: 26px;
+        height: 26px;
+      }
+      .burger .x-ic {
+        display: none;
+      }
+      .burger.open .bars-ic {
+        display: none;
+      }
+      .burger.open .x-ic {
+        display: block;
+      }
+
+      /* mobile full-screen overlay menu */
+      .m-menu {
+        position: fixed;
+        inset: 0;
+        z-index: 1200;
+        background: var(--black);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 clamp(2rem, 8vw, 4rem);
+        transform: translateX(100%);
+        transition: transform 0.55s var(--ease);
+      }
+      .m-menu::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image: radial-gradient(
+          circle,
+          rgba(248, 248, 246, 0.045) 1px,
+          transparent 1px
+        );
+        background-size: 26px 26px;
+      }
+      .m-menu.open {
+        transform: translateX(0);
+      }
+      .m-menu a.m-link {
+        font-family: var(--bebas);
+        font-size: clamp(2.4rem, 9vw, 3rem);
+        letter-spacing: 0.04em;
+        padding: 10px 0;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        color: var(--white);
+        border-bottom: 1px solid var(--mid);
+        transition: color 0.25s, padding-left 0.3s var(--ease);
+      }
+      .m-menu a.m-link span.m-num {
+        font-family: var(--mono);
+        font-size: 0.7rem;
+        color: var(--white-mute);
+        letter-spacing: 0.2em;
+      }
+      .m-menu a.m-link:hover {
+        color: var(--red);
+        padding-left: 10px;
+      }
+      .m-menu .m-foot {
+        margin-top: 36px;
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        color: var(--white-mute);
+        letter-spacing: 0.12em;
+      }
+      .m-menu .m-foot a {
+        color: var(--red);
+      }
+
+      /* ============================================================
+   FOOTER
+   ============================================================ */
+      .footer {
+        background: var(--ink);
+        border-top: 1px solid var(--mid);
+        padding: 78px 0 0;
+        position: relative;
+      }
+      .footer::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.5;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n4'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n4)' opacity='0.04'/%3E%3C/svg%3E");
+      }
+      .f-cols {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: 1.6fr 1fr 1fr 1fr;
+        gap: clamp(2rem, 5vw, 4rem);
+        padding-bottom: 60px;
+      }
+      .f-brand .brand {
+        margin-bottom: 20px;
+      }
+      .f-brand p {
+        color: var(--white-dim);
+        font-weight: 300;
+        font-size: 0.84rem;
+        max-width: 300px;
+        margin-bottom: 26px;
+      }
+      .socials {
+        display: flex;
+        gap: 10px;
+      }
+      .soc {
+        width: 34px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--mid);
+        color: var(--white-dim);
+        transition: border-color 0.3s, color 0.3s, background 0.3s,
+          transform 0.3s var(--ease);
+      }
+      .soc:hover {
+        border-color: var(--red);
+        color: var(--red);
+        background: var(--red-dim);
+        transform: translateY(-3px);
+      }
+      .soc svg {
+        width: 16px;
+        height: 16px;
+      }
+      .f-col h4 {
+        font-family: var(--mono);
+        font-weight: 700;
+        font-size: 0.66rem;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--white-mute);
+        margin-bottom: 22px;
+      }
+      .f-col ul {
+        list-style: none;
+        display: grid;
+        gap: 12px;
+      }
+      .f-col a {
+        font-size: 0.84rem;
+        font-weight: 300;
+        color: var(--white-dim);
+        transition: color 0.25s, padding-left 0.25s var(--ease);
+      }
+      .f-col a:hover {
+        color: var(--red);
+        padding-left: 6px;
+      }
+      .f-bottom {
+        position: relative;
+        z-index: 2;
+        border-top: 1px solid var(--mid);
+        padding: 24px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+      .f-bottom p {
+        font-family: var(--mono);
+        font-size: 0.62rem;
+        letter-spacing: 0.1em;
+        color: var(--white-mute);
+      }
+      .f-legal {
+        display: flex;
+        gap: 22px;
+      }
+      .f-legal a {
+        font-family: var(--mono);
+        font-size: 0.62rem;
+        letter-spacing: 0.1em;
+        color: var(--white-mute);
+        transition: color 0.25s;
+      }
+      .f-legal a:hover {
+        color: var(--red);
+      }
+
+      /* ============================================================
+   DESIGN SYSTEM DOC — page-specific styles
+   ============================================================ */
+      .dhero {
+        position: relative;
+        background: var(--ink);
+        padding: 170px 0 64px;
+        overflow: hidden;
+      }
+      .dhero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image: repeating-linear-gradient(
+          45deg,
+          rgba(248, 248, 246, 0.028) 0 1px,
+          transparent 1px 12px
+        );
+      }
+      .dhero .container {
+        position: relative;
+        z-index: 2;
+      }
+      .dhero-title {
+        font-family: var(--bebas);
+        font-weight: 400;
+        font-size: clamp(3rem, 7.5vw, 6rem);
+        letter-spacing: 0.02em;
+        line-height: 0.96;
+        text-transform: uppercase;
+        margin: 14px 0 18px;
+      }
+      .dhero .lead {
+        max-width: 640px;
+      }
+      .dmeta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 28px;
+      }
+      .dmeta span {
+        font-family: var(--mono);
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--white-dim);
+        border: 1px solid var(--mid);
+        padding: 8px 13px;
+      }
+      .dmeta span b {
+        color: var(--red);
+        font-weight: 700;
+      }
+
+      .anchorbar {
+        position: sticky;
+        top: 0;
+        z-index: 60;
+        background: rgba(5, 5, 5, 0.92);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-top: 1px solid rgba(248, 248, 246, 0.08);
+        border-bottom: 1px solid rgba(248, 248, 246, 0.08);
+      }
+      .anchorbar-inner {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        overflow-x: auto;
+        padding: 13px 0;
+        scrollbar-width: none;
+      }
+      .anchorbar-inner::-webkit-scrollbar {
+        display: none;
+      }
+      .abar-label {
+        flex: 0 0 auto;
+        font-family: var(--mono);
+        font-size: 0.6rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--white-mute);
+        padding-right: 8px;
+        border-right: 1px solid var(--mid);
+        margin-right: 4px;
+      }
+      .abtn {
+        flex: 0 0 auto;
+        font-family: var(--mono);
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--white-dim);
+        border: 1px solid rgba(248, 248, 246, 0.22);
+        padding: 8px 13px;
+        transition: color 0.25s, border-color 0.25s, background 0.25s;
+      }
+      .abtn:hover {
+        color: var(--white);
+        border-color: var(--white);
+      }
+      .abtn.active {
+        background: var(--red);
+        border-color: var(--red);
+        color: var(--white);
+      }
+
+      .dsec {
+        position: relative;
+        padding: 88px 0 74px;
+      }
+      .dsec:nth-of-type(odd) {
+        background: var(--black);
+      }
+      .dsec:nth-of-type(even) {
+        background: var(--ink);
+      }
+      .dsec::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.55;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='nd'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23nd)' opacity='0.04'/%3E%3C/svg%3E");
+      }
+      .dsec .container {
+        position: relative;
+        z-index: 2;
+      }
+      .dsec-num {
+        font-family: var(--mono);
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--red);
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 14px;
+      }
+      .dsec-num::after {
+        content: "";
+        flex: 0 0 44px;
+        height: 1px;
+        background: var(--red);
+      }
+      .dsec-title {
+        font-family: var(--bebas);
+        font-weight: 400;
+        font-size: clamp(2.2rem, 4.8vw, 3.4rem);
+        letter-spacing: 0.025em;
+        line-height: 1;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+      }
+      .dsec-intro {
+        font-size: 0.97rem;
+        font-weight: 300;
+        color: var(--white-dim);
+        line-height: 1.78;
+        max-width: 720px;
+        margin-bottom: 40px;
+      }
+      .dsec h3 {
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--white);
+        margin: 46px 0 18px;
+        padding-left: 15px;
+        border-left: 3px solid var(--red);
+      }
+      .dsec p {
+        font-size: 0.92rem;
+        font-weight: 300;
+        color: var(--white-dim);
+        line-height: 1.8;
+        margin-bottom: 16px;
+        max-width: 760px;
+      }
+      .dsec p strong {
+        color: var(--white);
+        font-weight: 600;
+      }
+      .dsec a {
+        color: var(--red);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .tm {
+        font-size: 0.45em;
+        vertical-align: super;
+        letter-spacing: 0;
+      }
+
+      .dcallout {
+        background: var(--dark);
+        border: 1px solid var(--mid);
+        border-left: 3px solid var(--red);
+        padding: 22px 24px;
+        margin: 26px 0;
+        font-size: 0.9rem;
+        font-weight: 300;
+        color: var(--white);
+        line-height: 1.75;
+        max-width: 860px;
+      }
+      .dcallout strong {
+        font-weight: 700;
+      }
+      .dgrid {
+        display: grid;
+        gap: 14px;
+        margin: 0 0 10px;
+      }
+      .g2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .g3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .g4 {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .dcard {
+        background: var(--dark);
+        border: 1px solid var(--mid);
+        padding: 24px;
+      }
+      .dcard h4 {
+        font-family: var(--bebas);
+        font-weight: 400;
+        font-size: 1.3rem;
+        letter-spacing: 0.04em;
+        margin-bottom: 8px;
+      }
+      .dcard p {
+        font-size: 0.82rem;
+        margin-bottom: 0;
+        line-height: 1.7;
+      }
+      .dcard .dc-num {
+        font-family: var(--mono);
+        font-size: 0.6rem;
+        font-weight: 700;
+        color: var(--red);
+        letter-spacing: 0.2em;
+        display: block;
+        margin-bottom: 12px;
+      }
+
+      .metric {
+        background: var(--dark);
+        border: 1px solid var(--mid);
+        border-bottom: 3px solid var(--red);
+        padding: 24px 22px;
+        text-align: left;
+      }
+      .metric b {
+        display: block;
+        font-family: var(--bebas);
+        font-weight: 400;
+        font-size: 2.6rem;
+        line-height: 1;
+        color: var(--white);
+      }
+      .metric b em {
+        font-style: normal;
+        color: var(--red);
+      }
+      .metric span {
+        display: block;
+        margin-top: 8px;
+        font-family: var(--mono);
+        font-size: 0.58rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--white-mute);
+        line-height: 1.6;
+      }
+
+      /* swatches */
+      .swatch {
+        border: 1px solid var(--mid);
+        overflow: hidden;
+        cursor: pointer;
+        position: relative;
+      }
+      .sw-chip {
+        height: 96px;
+        display: flex;
+        align-items: flex-end;
+        padding: 10px 14px;
+        font-family: var(--mono);
+        font-size: 0.58rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .sw-body {
+        background: var(--dark);
+        padding: 14px 16px;
+      }
+      .sw-body b {
+        display: block;
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 4px;
+      }
+      .sw-body code {
+        font-family: var(--mono);
+        font-size: 0.68rem;
+        color: var(--red);
+        display: block;
+        margin-bottom: 6px;
+      }
+      .sw-body p {
+        font-size: 0.72rem;
+        color: var(--white-mute);
+        line-height: 1.6;
+        margin: 0;
+      }
+      .swatch .copied {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: var(--red);
+        color: var(--white);
+        font-family: var(--mono);
+        font-size: 0.55rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 5px 9px;
+        opacity: 0;
+        transition: opacity 0.25s;
+      }
+      .swatch.show-copied .copied {
+        opacity: 1;
+      }
+
+      /* logo lab */
+      .lg-panel {
+        border: 1px solid var(--mid);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 190px;
+        position: relative;
+        padding: 28px;
+      }
+      .lg-panel img {
+        width: 104px;
+        height: 104px;
+        object-fit: contain;
+      }
+      .lg-tag {
+        position: absolute;
+        left: 12px;
+        bottom: 10px;
+        font-family: var(--mono);
+        font-size: 0.56rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        opacity: 0.75;
+      }
+      .lg-white img {
+        filter: brightness(0) invert(1);
+      }
+      .lg-black img {
+        filter: brightness(0);
+      }
+      .lockup {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .lockup img {
+        width: 64px;
+        height: 64px;
+        object-fit: contain;
+      }
+      .lockup .lk-name {
+        font-family: var(--bebas);
+        font-weight: 400;
+        font-size: 2rem;
+        letter-spacing: 0.04em;
+        line-height: 0.95;
+        color: var(--white);
+        text-transform: uppercase;
+      }
+      .lockup .lk-name em {
+        font-style: normal;
+        color: var(--red);
+      }
+      .lockup .lk-tag {
+        display: block;
+        font-family: var(--mono);
+        font-size: 0.56rem;
+        font-weight: 700;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--white-dim);
+        margin-top: 7px;
+      }
+      .clearspace {
+        position: relative;
+        display: inline-block;
+        border: 1px dashed rgba(232, 34, 26, 0.6);
+        padding: 34px;
+        margin: 8px 0;
+      }
+      .clearspace img {
+        width: 120px;
+        height: 120px;
+        display: block;
+        object-fit: contain;
+      }
+      .cs-x {
+        position: absolute;
+        font-family: var(--mono);
+        font-size: 0.6rem;
+        font-weight: 700;
+        color: var(--red);
+        letter-spacing: 0.1em;
+      }
+      .mis {
+        position: relative;
+        border: 1px solid var(--mid);
+        background: var(--dark);
+        min-height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        padding: 20px;
+      }
+      .mis img {
+        width: 78px;
+        height: 78px;
+        object-fit: contain;
+      }
+      .mis-label {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(5, 5, 5, 0.85);
+        font-family: var(--mono);
+        font-size: 0.56rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--white-dim);
+        padding: 8px 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .mis-label svg {
+        width: 13px;
+        height: 13px;
+        color: var(--red);
+        flex: none;
+      }
+
+      /* type specimens */
+      .spec {
+        background: var(--dark);
+        border: 1px solid var(--mid);
+        padding: 30px 28px;
+      }
+      .spec .sp-aa {
+        font-size: 3.4rem;
+        line-height: 1;
+        color: var(--red);
+        margin-bottom: 14px;
+        display: block;
+      }
+      .spec .sp-name {
+        font-size: 1.5rem;
+        color: var(--white);
+        display: block;
+        margin-bottom: 6px;
+      }
+      .spec .sp-role {
+        font-family: var(--mono);
+        font-size: 0.58rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--red);
+        display: block;
+        margin-bottom: 16px;
+      }
+      .spec .sp-set {
+        font-size: 0.86rem;
+        color: var(--white-dim);
+        line-height: 1.8;
+        word-break: break-all;
+      }
+      .sp-bebas {
+        font-family: var(--bebas);
+        font-weight: 400;
+        letter-spacing: 0.03em;
+      }
+      .sp-inter {
+        font-family: var(--body);
+      }
+      .sp-mono {
+        font-family: var(--mono);
+      }
+
+      /* tables */
+      .ds-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 8px 0 28px;
+        font-size: 0.82rem;
+        font-weight: 300;
+        color: var(--white-dim);
+      }
+      .ds-table th {
+        font-family: var(--mono);
+        font-size: 0.58rem;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--white);
+        background: var(--dark);
+        text-align: left;
+        padding: 12px 14px;
+        border: 1px solid var(--mid);
+        border-bottom: 2px solid var(--red);
+      }
+      .ds-table td {
+        padding: 12px 14px;
+        border: 1px solid var(--mid);
+        vertical-align: top;
+        line-height: 1.6;
+      }
+      .ds-table td b {
+        color: var(--white);
+        font-weight: 600;
+      }
+      .ds-table td code {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        color: var(--red);
+      }
+      .t-pass {
+        color: var(--white);
+        font-weight: 600;
+      }
+      .t-fail {
+        color: var(--red);
+        font-weight: 600;
+      }
+      .tbl-wrap {
+        overflow-x: auto;
+      }
+
+      /* code blocks */
+      .codeblock {
+        background: var(--dark);
+        border: 1px solid var(--mid);
+        border-top: 3px solid var(--red);
+        padding: 22px 24px;
+        margin: 10px 0 28px;
+        overflow-x: auto;
+      }
+      .codeblock pre {
+        font-family: var(--mono);
+        font-size: 0.74rem;
+        line-height: 1.75;
+        color: var(--white-dim);
+        white-space: pre;
+      }
+      .codeblock .ck {
+        color: var(--red);
+      }
+      .codeblock .cc {
+        color: var(--white-mute);
+      }
+
+      /* texture lab */
+      .tex {
+        border: 1px solid var(--mid);
+        height: 130px;
+        position: relative;
+        background: var(--ink);
+      }
+      .tex-label {
+        position: absolute;
+        left: 10px;
+        bottom: 8px;
+        font-family: var(--mono);
+        font-size: 0.56rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--white-dim);
+        background: rgba(5, 5, 5, 0.8);
+        padding: 4px 8px;
+      }
+      .tex-noise {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='nt'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23nt)' opacity='0.12'/%3E%3C/svg%3E");
+      }
+      .tex-h45 {
+        background-image: repeating-linear-gradient(
+          45deg,
+          rgba(248, 248, 246, 0.07) 0 1px,
+          transparent 1px 12px
+        );
+      }
+      .tex-h-45 {
+        background-image: repeating-linear-gradient(
+          -45deg,
+          rgba(248, 248, 246, 0.07) 0 1px,
+          transparent 1px 12px
+        );
+      }
+      .tex-h60 {
+        background-image: repeating-linear-gradient(
+          60deg,
+          rgba(248, 248, 246, 0.07) 0 1px,
+          transparent 1px 12px
+        );
+      }
+      .tex-dot {
+        background-image: radial-gradient(
+          rgba(248, 248, 246, 0.14) 1px,
+          transparent 1px
+        );
+        background-size: 26px 26px;
+      }
+      .tex-stripe {
+        background: var(--red);
+        background-image: repeating-linear-gradient(
+          -45deg,
+          rgba(5, 5, 5, 0.14) 0 14px,
+          transparent 14px 28px
+        );
+      }
+      .tex-scan {
+        background: repeating-linear-gradient(
+          0deg,
+          rgba(5, 5, 5, 0.35) 0 2px,
+          transparent 2px 5px
+        );
+      }
+
+      /* icon grid */
+      .icogrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+        gap: 12px;
+        margin-bottom: 10px;
+      }
+      .ico {
+        background: var(--dark);
+        border: 1px solid var(--mid);
+        padding: 18px 10px 12px;
+        text-align: center;
+      }
+      .ico svg {
+        width: 22px;
+        height: 22px;
+        color: var(--red);
+      }
+      .ico span {
+        display: block;
+        margin-top: 10px;
+        font-family: var(--mono);
+        font-size: 0.54rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--white-mute);
+      }
+
+      /* photo lab */
+      .photo-demo {
+        position: relative;
+        aspect-ratio: 3/4;
+        overflow: hidden;
+        border: 1px solid var(--mid);
+      }
+      .photo-demo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(0.7);
+        transition: filter 0.5s var(--ease), transform 0.8s var(--ease);
+      }
+      .photo-demo:hover img {
+        filter: grayscale(0);
+        transform: scale(1.05);
+      }
+      .photo-demo .pd-tag {
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+        background: var(--red);
+        color: var(--white);
+        font-family: var(--mono);
+        font-size: 0.56rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 6px 10px;
+      }
+      .pd-scan::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: repeating-linear-gradient(
+          0deg,
+          rgba(5, 5, 5, 0.28) 0 2px,
+          transparent 2px 5px
+        );
+      }
+
+      /* motion lab */
+      .motion-demo {
+        background: var(--dark);
+        border: 1px solid var(--mid);
+        padding: 24px;
+        min-height: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 12px;
+      }
+      .motion-demo .md-name {
+        font-family: var(--mono);
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--white);
+      }
+      .motion-demo .md-spec {
+        font-family: var(--mono);
+        font-size: 0.62rem;
+        color: var(--red);
+      }
+      .motion-demo p {
+        font-size: 0.76rem;
+        margin: 0;
+      }
+
+      /* social mockups */
+      .mock {
+        border: 1px solid var(--mid);
+        background: var(--black);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        padding: 9%;
+      }
+      .mock-sq {
+        aspect-ratio: 1/1;
+      }
+      .mock-pt {
+        aspect-ratio: 4/5;
+      }
+      .mock-st {
+        aspect-ratio: 9/16;
+        max-width: 300px;
+      }
+      .mock .mk-brand {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--bebas);
+        font-size: 0.95rem;
+        letter-spacing: 0.06em;
+        color: var(--white);
+        text-transform: uppercase;
+      }
+      .mock .mk-brand img {
+        width: 22px;
+        height: 22px;
+        object-fit: contain;
+      }
+      .mock .mk-brand em {
+        font-style: normal;
+        color: var(--red);
+      }
+      .mock .mk-label {
+        font-family: var(--mono);
+        font-size: 0.55rem;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--red);
+        margin: auto 0 10px;
+      }
+      .mock .mk-head {
+        font-family: var(--bebas);
+        font-weight: 400;
+        font-size: clamp(1.5rem, 3.2vw, 2.2rem);
+        line-height: 0.98;
+        letter-spacing: 0.02em;
+        color: var(--white);
+        text-transform: uppercase;
+      }
+      .mock .mk-head em {
+        font-style: normal;
+        color: var(--red);
+      }
+      .mock .mk-foot {
+        margin-top: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: var(--mono);
+        font-size: 0.55rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--white-mute);
+      }
+      .mock .mk-bar {
+        width: 34px;
+        height: 3px;
+        background: var(--red);
+        margin: 14px 0 0;
+      }
+      .mock-grid45 {
+        background-image: repeating-linear-gradient(
+          45deg,
+          rgba(248, 248, 246, 0.04) 0 1px,
+          transparent 1px 12px
+        );
+      }
+      .mock-cap {
+        font-family: var(--mono);
+        font-size: 0.58rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--white-mute);
+        margin-top: 10px;
+      }
+
+      /* do / don't */
+      .rule {
+        border: 1px solid var(--mid);
+        background: var(--dark);
+        padding: 22px;
+      }
+      .rule .r-head {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+        font-family: var(--mono);
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+      .rule .r-head svg {
+        width: 15px;
+        height: 15px;
+        flex: none;
+      }
+      .rule-do {
+        border-top: 3px solid var(--white);
+      }
+      .rule-do .r-head {
+        color: var(--white);
+      }
+      .rule-dont {
+        border-top: 3px solid var(--red);
+      }
+      .rule-dont .r-head {
+        color: var(--red);
+      }
+      .rule p {
+        font-size: 0.8rem;
+        margin: 0;
+        line-height: 1.7;
+      }
+
+      /* voice chips */
+      .vchips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+        margin: 0 0 24px;
+      }
+      .vchip {
+        font-family: var(--mono);
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 9px 14px;
+        border: 1px solid var(--mid);
+      }
+      .vchip-yes {
+        color: var(--white);
+        border-color: rgba(248, 248, 246, 0.4);
+      }
+      .vchip-no {
+        color: var(--red);
+        border-color: rgba(232, 34, 26, 0.5);
+        text-decoration: line-through;
+        text-decoration-thickness: 1px;
+      }
+
+      @media (max-width: 901px) {
+        .g4 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .g3 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 600px) {
+        .dhero {
+          padding-top: 128px;
+        }
+        .dsec {
+          padding: 64px 0 56px;
+        }
+        .g2,
+        .g3,
+        .g4 {
+          grid-template-columns: 1fr;
+        }
+        .lockup .lk-name {
+          font-size: 1.6rem;
+        }
+      }
+      /* ============================================================
+   RESPONSIVE
+   ============================================================ */
+      /* Force desktop layout above 901px — overrides any inherited single-col */
+      @media (min-width: 902px) {
+        .hero-grid {
+          grid-template-columns: 1.12fr 0.88fr;
+        }
+        .about-grid {
+          grid-template-columns: 0.92fr 1.08fr;
+        }
+        .svc-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .why-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+        .plans-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .ben-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .res-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+        .bgrid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .faq-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .c-grid {
+          grid-template-columns: 0.9fr 1.1fr;
+        }
+        .stats-grid {
+          grid-template-columns: repeat(5, 1fr);
+        }
+        .f-cols {
+          grid-template-columns: 1.6fr 1fr 1fr 1fr;
+        }
+      }
+
+      /* Tablet 768–901 */
+      @media (max-width: 901px) {
+        .nav-links {
+          display: none;
+        }
+        .nav-cta {
+          display: none;
+        }
+        .burger {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 3.2rem;
+        }
+        .hero-photo-wrap {
+          justify-self: start;
+          width: min(100%, 400px);
+        }
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 3.4rem;
+        }
+        .a-photo {
+          max-width: 420px;
+        }
+        .svc-head {
+          grid-template-columns: 1fr;
+        }
+        .svc-head .lead {
+          justify-self: start;
+        }
+        .svc-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .why-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .ben-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .res-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .bgrid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .faq-grid {
+          grid-template-columns: 1fr;
+        }
+        .c-grid {
+          grid-template-columns: 1fr;
+          gap: 3.4rem;
+        }
+        .stats-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .stat:nth-child(4) {
+          border-left: none;
+        }
+        .stat {
+          border-top: 1px solid var(--mid);
+        }
+        .stat:nth-child(-n + 3) {
+          border-top: none;
+        }
+        .story,
+        .story--flip {
+          grid-template-columns: 1fr;
+          gap: 1.8rem;
+        }
+        .story--flip .story-media {
+          order: 1;
+        }
+        .story--flip .story-body {
+          order: 2;
+        }
+        .story-media {
+          max-width: 380px;
+        }
+        .f-cols {
+          grid-template-columns: 1.4fr 1fr 1fr;
+        }
+        .gbar-inner {
+          flex-direction: column;
+          gap: 14px;
+        }
+      }
+
+      /* Mobile L 480–768 */
+      @media (max-width: 768px) {
+        .hero {
+          padding-top: calc(var(--nav-h) + 28px);
+        }
+        .hero-photo-wrap {
+          display: none;
+        }
+        .hero-award-mobile {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          margin: -26px 0 40px;
+          font-family: var(--mono);
+          font-size: 0.6rem;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: var(--white-dim);
+          border: 1px solid var(--mid);
+          border-left: 3px solid var(--red);
+          padding: 10px 14px;
+        }
+        .hero-award-mobile .ic-s {
+          color: var(--red);
+        }
+        .svc-grid {
+          grid-template-columns: 1fr;
+        }
+        .svc-card {
+          min-height: 0;
+        }
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .stat {
+          border-top: 1px solid var(--mid);
+        }
+        .stat:nth-child(-n + 2) {
+          border-top: none;
+        }
+        .stat:nth-child(3) {
+          border-left: none;
+        }
+        .stat:nth-child(5) {
+          border-left: none;
+        }
+        .plans-grid {
+          grid-template-columns: 1fr;
+        }
+        .why-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 12px;
+        }
+        .res-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+        }
+        .bgrid {
+          grid-template-columns: 1fr;
+        }
+        .f-grid {
+          grid-template-columns: 1fr;
+        }
+        .f-cols {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      /* Mobile S <480 */
+      @media (max-width: 480px) {
+        .hero-title {
+          font-size: clamp(3.6rem, 19vw, 4.6rem);
+        }
+        .hero-stats {
+          flex-direction: column;
+          border-top: none;
+        }
+        .hstat {
+          padding: 14px 0;
+          border-top: 1px solid var(--mid);
+        }
+        .hstat + .hstat {
+          padding-left: 0;
+          border-left: none;
+        }
+        .why-grid {
+          grid-template-columns: 1fr;
+        }
+        .ben-grid {
+          grid-template-columns: 1fr;
+        }
+        .res-grid {
+          grid-template-columns: 1fr;
+        }
+        .res-card,
+        .res-cta-card {
+          aspect-ratio: 4/5;
+        }
+        .stats-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .f-cols {
+          grid-template-columns: 1fr;
+        }
+        .f-bottom {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .badge-award {
+          left: -8px;
+          max-width: 220px;
+        }
+        .gbadge {
+          font-size: 1.05rem;
+        }
+      }
+
+      /* Touch devices: kill custom cursor, restore native */
+      @media (hover: none) {
+        #cursor-dot,
+        #cursor-ring {
+          display: none;
+        }
+        body,
+        a,
+        button,
+        select {
+          cursor: auto;
+        }
+      }
+
+      /* Reduced motion: everything visible, nothing moves */
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+        html {
+          scroll-behavior: auto;
+        }
+        .reveal,
+        .reveal-l,
+        .reveal-r {
+          opacity: 1;
+          transform: none;
+        }
+        .ht-line span {
+          transform: none;
+          animation: none;
+        }
+        .bcard {
+          opacity: 1;
+          transform: none;
+        }
+        .mq-track {
+          animation: none;
+        }
+      }
+      /* ============================================================
+   LEFT RAIL NAVIGATION — laptop/desktop only
+   ============================================================ */
+      .dsec {
+        scroll-margin-top: 74px;
+      }
+      .drail {
+        display: none;
+      }
+      @media (min-width: 901px) {
+        .drail {
+          display: flex;
+          flex-direction: column;
+          position: fixed;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          width: 220px;
+          z-index: 50;
+          background: var(--black);
+          border-right: 1px solid var(--mid);
+          padding: 112px 16px 22px 22px;
+          overflow-y: auto;
+          scrollbar-width: thin;
+          scrollbar-color: var(--mid) var(--black);
+        }
+        .drail::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          background-image: repeating-linear-gradient(
+            45deg,
+            rgba(248, 248, 246, 0.02) 0 1px,
+            transparent 1px 12px
+          );
+        }
+        .drail-head {
+          position: relative;
+          font-family: var(--mono);
+          font-size: 0.58rem;
+          font-weight: 700;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          color: var(--red);
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 14px;
+        }
+        .drail-head::after {
+          content: "";
+          flex: 1;
+          height: 1px;
+          background: var(--mid);
+        }
+        .drail-link {
+          position: relative;
+          display: flex;
+          align-items: baseline;
+          gap: 9px;
+          font-family: var(--mono);
+          font-size: 0.63rem;
+          font-weight: 700;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+          color: var(--white-dim);
+          padding: 7px 9px;
+          border-left: 2px solid transparent;
+          transition: color 0.2s, border-color 0.2s, background 0.2s;
+        }
+        .drail-link span {
+          font-size: 0.53rem;
+          color: var(--white-mute);
+          width: 17px;
+          flex: none;
+        }
+        .drail-link:hover {
+          color: var(--white);
+        }
+        .drail-link.active {
+          color: var(--white);
+          border-left-color: var(--red);
+          background: rgba(232, 34, 26, 0.07);
+        }
+        .drail-link.active span {
+          color: var(--red);
+        }
+        .drail-foot {
+          position: relative;
+          margin-top: auto;
+          padding-top: 18px;
+          border-top: 1px solid var(--mid);
+          font-family: var(--mono);
+          font-size: 0.53rem;
+          font-weight: 700;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+          color: var(--white-mute);
+          line-height: 1.9;
+        }
+        .anchorbar {
+          display: none;
+        }
+        .dhero,
+        .dsec,
+        .footer {
+          padding-left: 220px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="cursor-dot" aria-hidden="true"></div>
+    <div id="cursor-ring" aria-hidden="true"></div>
+
+    <!-- ============ NAVBAR ============ -->
+    <header class="nav" id="nav">
+      <div class="nav-inner">
+        <a
+          class="brand"
+          href="index.html"
+          aria-label="The Muscle Engineer — home"
+        >
+          <img
+            src="logo.png"
+            alt="The Muscle Engineer logo"
+            width="42"
+            height="42"
+            onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='https://static.wixstatic.com/media/e5091e_c1bac369cae741d08b2e7e9c95df371b~mv2.png/v1/fill/w_84,h_84,al_c,q_85,enc_avif,quality_auto/e5091e_c1bac369cae741d08b2e7e9c95df371b~mv2.png'}else{this.style.display='none'}"
+          />
+          <span class="brand-name"
+            >The Muscle <em>Engineer</em><sup>&reg;</sup></span
+          >
+        </a>
+        <nav aria-label="Primary">
+          <ul class="nav-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#plans">Plans</a></li>
+            <li><a href="index.html#results">Results</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
+          </ul>
+        </nav>
+        <a class="btn btn-red nav-cta" href="index.html#contact">Get Started</a>
+        <button
+          class="burger"
+          id="burger"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mMenu"
+        >
+          <svg
+            class="bars-ic"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <line x1="4" x2="20" y1="7" y2="7" />
+            <line x1="4" x2="20" y1="12" y2="12" />
+            <line x1="4" x2="20" y1="17" y2="17" />
+          </svg>
+          <svg
+            class="x-ic"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="m-menu" id="mMenu" aria-hidden="true">
+      <a class="m-link" href="index.html#about"
+        ><span class="m-num">01</span>About</a
+      >
+      <a class="m-link" href="index.html#services"
+        ><span class="m-num">02</span>Services</a
+      >
+      <a class="m-link" href="index.html#plans"
+        ><span class="m-num">03</span>Plans</a
+      >
+      <a class="m-link" href="index.html#results"
+        ><span class="m-num">04</span>Results</a
+      >
+      <a class="m-link" href="blog.html"><span class="m-num">05</span>Blog</a>
+      <a class="m-link" href="index.html#faq"
+        ><span class="m-num">06</span>FAQ</a
+      >
+      <a class="m-link" href="index.html#contact"
+        ><span class="m-num">07</span>Contact</a
+      >
+      <div class="m-foot">
+        <span>Talk to the coach</span>
+        <a href="mailto:founder.themuscleengineer@gmail.com"
+          >founder.themuscleengineer@gmail.com</a
+        >
+      </div>
+    </div>
+
+    <main>
+      <!-- ============ LEFT RAIL (laptop/desktop) ============ -->
+      <aside class="drail" aria-label="Document sections">
+        <div class="drail-head">On This Page</div>
+        <a class="drail-link" href="#brand"><span>01</span>Brand Core</a>
+        <a class="drail-link" href="#logo"><span>02</span>Logo System</a>
+        <a class="drail-link" href="#color"><span>03</span>Colour</a>
+        <a class="drail-link" href="#type"><span>04</span>Typography</a>
+        <a class="drail-link" href="#layout"
+          ><span>05</span>Layout &amp; Texture</a
+        >
+        <a class="drail-link" href="#icons"><span>06</span>Iconography</a>
+        <a class="drail-link" href="#photo"><span>07</span>Photography</a>
+        <a class="drail-link" href="#motion"><span>08</span>Motion</a>
+        <a class="drail-link" href="#components"><span>09</span>Components</a>
+        <a class="drail-link" href="#voice"><span>10</span>Voice &amp; Tone</a>
+        <a class="drail-link" href="#social"><span>11</span>Social Kit</a>
+        <a class="drail-link" href="#web"><span>12</span>Web Standards</a>
+        <a class="drail-link" href="#tokens"><span>13</span>Design Tokens</a>
+        <a class="drail-link" href="#rules"><span>14</span>Do's &amp; Don'ts</a>
+        <a class="drail-link" href="#assets"><span>15</span>Asset Vault</a>
+        <div class="drail-foot">
+          Brand System v1.0<br />Internal &middot; Est. 2024
+        </div>
+      </aside>
+
+      <!-- ============ HERO ============ -->
+      <section class="dhero">
+        <div class="container">
+          <div class="sec-label">Brand &amp; Design System · Internal</div>
+          <h1 class="dhero-title">
+            The Brand, <span class="t-red">Engineered.</span>
+          </h1>
+          <p class="lead">
+            Every visual, verbal and technical decision that forms The Muscle
+            Engineer — brand story, logo law, colour, typography, components,
+            voice, social and web standards. One document. One source of truth.
+            For developers, designers, social teams and partners.
+          </p>
+          <div class="dmeta">
+            <span>Version <b>1.0 · June 2026</b></span>
+            <span>Est. <b>2024</b> · Bengaluru, India</span>
+            <span>Coach Experience: <b>10+ Years</b></span>
+            <span>Tagline: <b>Ignite · Improve · Inspire</b></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ ON THIS PAGE ============ -->
+      <div class="anchorbar" id="anchorBar">
+        <div class="container">
+          <div class="anchorbar-inner">
+            <span class="abar-label">Sections</span>
+            <a class="abtn" href="#brand">01 Brand</a>
+            <a class="abtn" href="#logo">02 Logo</a>
+            <a class="abtn" href="#color">03 Colour</a>
+            <a class="abtn" href="#type">04 Type</a>
+            <a class="abtn" href="#layout">05 Layout</a>
+            <a class="abtn" href="#icons">06 Icons</a>
+            <a class="abtn" href="#photo">07 Photo</a>
+            <a class="abtn" href="#motion">08 Motion</a>
+            <a class="abtn" href="#components">09 Components</a>
+            <a class="abtn" href="#voice">10 Voice</a>
+            <a class="abtn" href="#social">11 Social</a>
+            <a class="abtn" href="#web">12 Web</a>
+            <a class="abtn" href="#tokens">13 Tokens</a>
+            <a class="abtn" href="#rules">14 Rules</a>
+            <a class="abtn" href="#assets">15 Assets</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ 01 BRAND CORE ============ -->
+      <section class="dsec" id="brand">
+        <div class="container">
+          <div class="dsec-num">Section 01</div>
+          <h2 class="dsec-title">Brand <span class="t-red">Core</span></h2>
+          <p class="dsec-intro">
+            Who The Muscle Engineer is, what we stand for, and the story every
+            piece of work must serve. Read this before touching a pixel or
+            writing a caption.
+          </p>
+
+          <h3>Positioning</h3>
+          <p>
+            <strong
+              >The Muscle Engineer is science-backed, accountability-driven
+              online fitness coaching from India.</strong
+            >
+            Founded in 2024 by Coach Amar — a certified fitness expert,
+            professional model and Mr. Supranational South India 2023, with over
+            10 years in fitness — we engineer transformations: fully
+            personalised training, nutrition and lifestyle systems, delivered
+            1-on-1, protected by a 100% money back guarantee. We are not an app,
+            not a template, not a guru. We are engineers of the human result.
+          </p>
+          <div class="dcallout">
+            <strong>The metrics rule:</strong> "10+ Years" always refers to
+            Coach Amar's experience in fitness — never the company's age. The
+            company line is "Est. 2024". Never blur the two.
+          </div>
+
+          <h3>Mission</h3>
+          <p
+            style="
+              font-family: var(--bebas);
+              font-size: 1.7rem;
+              color: var(--white);
+              line-height: 1.15;
+              max-width: 720px;
+            "
+          >
+            "Engineer the strongest, healthiest version of every client —
+            through science, accountability and one hundred honest days at a
+            time."
+          </p>
+
+          <h3>Vision</h3>
+          <p
+            style="
+              font-family: var(--bebas);
+              font-size: 1.7rem;
+              color: var(--white);
+              line-height: 1.15;
+              max-width: 720px;
+            "
+          >
+            "To become India's most trusted name in natural, science-backed
+            transformation."
+          </p>
+
+          <h3>Core Values</h3>
+          <div class="dgrid g3">
+            <div class="dcard">
+              <span class="dc-num">V·01</span>
+              <h4>Science First</h4>
+              <p>
+                Evidence over trends. Data over guesswork. Every plan is built
+                on what is proven to work — and adjusted weekly by what your
+                body proves back.
+              </p>
+            </div>
+            <div class="dcard">
+              <span class="dc-num">V·02</span>
+              <h4>Radical Accountability</h4>
+              <p>
+                Daily records, weekly check-ins, surprise check-ins. We hold
+                clients to the plan because the plan is what delivers.
+              </p>
+            </div>
+            <div class="dcard">
+              <span class="dc-num">V·03</span>
+              <h4>Skin In The Game</h4>
+              <p>
+                The money back guarantee is the brand. If we fail you despite
+                your compliance, every rupee returns. Risk sits with the coach.
+              </p>
+            </div>
+            <div class="dcard">
+              <span class="dc-num">V·04</span>
+              <h4>100% Natural, Always</h4>
+              <p>
+                No shortcuts, no substances, no fake promises. Natural results
+                built on training, nutrition, sleep and patience.
+              </p>
+            </div>
+            <div class="dcard">
+              <span class="dc-num">V·05</span>
+              <h4>Built To Last</h4>
+              <p>
+                We do not sell 100-day bodies. We engineer lifestyles that
+                survive year one, year five, year fifty.
+              </p>
+            </div>
+            <div class="dcard">
+              <span class="dc-num">V·06</span>
+              <h4>India-Real</h4>
+              <p>
+                Dal, paneer, office hours, family dinners, festivals. Plans
+                engineered for real Indian life — never against it.
+              </p>
+            </div>
+          </div>
+
+          <h3>Audience</h3>
+          <div class="dgrid g3">
+            <div class="dcard">
+              <span class="dc-num">A·01</span>
+              <h4>The Busy Professional</h4>
+              <p>
+                25 to 45, desk job, fat loss or recomposition goal. Time-poor,
+                motivated, burned by fad diets. Wants a system, not a lecture.
+              </p>
+            </div>
+            <div class="dcard">
+              <span class="dc-num">A·02</span>
+              <h4>The Hard Gainer</h4>
+              <p>
+                18 to 30, wants natural muscle. Skeptical of supplements and
+                bro-science. Responds to numbers, protocols and proof.
+              </p>
+            </div>
+            <div class="dcard">
+              <span class="dc-num">A·03</span>
+              <h4>The PCOS Fighter</h4>
+              <p>
+                Women 20 to 40 managing PCOS or hormonal goals. Needs evidence,
+                empathy and zero fear-mongering. Speak with care, never hype.
+              </p>
+            </div>
+          </div>
+
+          <h3>Brand Metrics — Use In All Collateral</h3>
+          <div class="dgrid g4">
+            <div class="metric">
+              <b>130<em>+</em></b
+              ><span>Client Transformations</span>
+            </div>
+            <div class="metric">
+              <b>10<em>+</em></b
+              ><span>Years — Coach Amar's Experience</span>
+            </div>
+            <div class="metric">
+              <b>97<em>%</em></b
+              ><span>Success Rate</span>
+            </div>
+            <div class="metric">
+              <b>100<em>%</em></b
+              ><span>Natural · Est. 2024</span>
+            </div>
+          </div>
+          <p style="margin-top: 14px">
+            Update these numbers in one place at a time across all surfaces —
+            website stats, social bios, decks — never let two channels show two
+            different counts. Guarantee claims always carry the superscript
+            asterisk and a Terms link (see Section 10).
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ 02 LOGO SYSTEM ============ -->
+      <section class="dsec" id="logo">
+        <div class="container">
+          <div class="dsec-num">Section 02</div>
+          <h2 class="dsec-title">Logo <span class="t-red">System</span></h2>
+          <p class="dsec-intro">
+            The icon is the soul of the brand and it is permanently locked. The
+            wordmark and tagline around it have been modernised to the digital
+            identity. This section is law.
+          </p>
+
+          <div class="dcallout">
+            <strong>Rule zero — the icon is sacred.</strong> A happy person
+            stands at the centre, arms raised; two arrows beside the figure
+            indicate the trimming and shaping of the body. The mark reads as the
+            letter <strong>M</strong>, and viewed counter-clockwise, as the
+            letter <strong>E</strong>. This story is why the icon is never
+            redrawn, retraced, reshaped or "refreshed" — by anyone, ever,
+            including this document. Every appearance of the icon anywhere must
+            come from the official master files in Section 15.
+          </div>
+
+          <h3>Primary — The Digital Lockup</h3>
+          <p>
+            Icon (official file, untouched) + wordmark set live in
+            <strong>Bebas Neue</strong> + tagline in
+            <strong>Space Mono</strong>. Because the text is live type beside
+            the real icon file, any team can rebuild this lockup perfectly in
+            HTML, decks or social tools without requesting new artwork.
+            "Engineer" always takes Engine Red.
+          </p>
+          <div class="dgrid g2">
+            <div class="lg-panel" style="background: var(--black)">
+              <div class="lockup">
+                <img
+                  src="logo.png"
+                  alt="The Muscle Engineer icon"
+                  onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='https://static.wixstatic.com/media/e5091e_c1bac369cae741d08b2e7e9c95df371b~mv2.png/v1/fill/w_168,h_168,al_c,q_85,enc_avif,quality_auto/e5091e_c1bac369cae741d08b2e7e9c95df371b~mv2.png'}else{this.style.display='none'}"
+                />
+                <div>
+                  <span class="lk-name">The Muscle <em>Engineer</em></span>
+                  <span class="lk-tag">Ignite · Improve · Inspire</span>
+                </div>
+              </div>
+              <span class="lg-tag" style="color: var(--white-dim)"
+                >Horizontal — web header, email, docs</span
+              >
+            </div>
+            <div class="lg-panel" style="background: var(--black)">
+              <div
+                class="lockup"
+                style="flex-direction: column; text-align: center; gap: 12px"
+              >
+                <img
+                  src="logo.png"
+                  alt=""
+                  style="width: 74px; height: 74px"
+                  onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='https://static.wixstatic.com/media/e5091e_c1bac369cae741d08b2e7e9c95df371b~mv2.png/v1/fill/w_168,h_168,al_c,q_85,enc_avif,quality_auto/e5091e_c1bac369cae741d08b2e7e9c95df371b~mv2.png'}else{this.style.display='none'}"
+                />
+                <div>
+                  <span class="lk-name" style="font-size: 1.5rem"
+                    >The Muscle <em>Engineer</em></span
+                  >
+                  <span class="lk-tag" style="letter-spacing: 0.22em"
+                    >Ignite · Improve · Inspire</span
+                  >
+                </div>
+              </div>
+              <span class="lg-tag" style="color: var(--white-dim)"
+                >Stacked — social avatars, square placements</span
+              >
+            </div>
+          </div>
+
+          <h3>Archived — The Legacy Master Lockup</h3>
+          <p>
+            The original designer lockup — icon + "THE MUSCLE ENGINEER<sup
+              class="tm"
+              >TM</sup
+            >" in Cambria + tagline, on its dark canvas.
+            <strong>Status: archived.</strong> Valid on existing printed
+            material until reprint; never used on new digital work. Cambria does
+            not exist in the digital identity. When existing print is
+            re-ordered, re-export it using the digital lockup and Engine Red.
+          </p>
+          <div class="dgrid g2">
+            <div class="lg-panel" style="background: var(--dark)">
+              <img
+                src="logo-lockup-legacy.png"
+                alt="Legacy master lockup"
+                style="width: 200px; height: auto; max-height: 200px"
+                onerror="this.onerror=null;this.style.display='none';this.parentNode.querySelector('.lg-tag').textContent='Add logo-lockup-legacy.png to display the archived master here'"
+              />
+              <span class="lg-tag" style="color: var(--white-dim)"
+                >Legacy master — archive only</span
+              >
+            </div>
+            <div class="dcard">
+              <h4>
+                The
+                <span style="font-size: 0.6em; vertical-align: super">R</span>
+                Mark
+              </h4>
+              <p>
+                The trademark symbol appears on the legacy lockup and on formal
+                print, packaging and legal documents. On digital surfaces
+                (website header, social graphics) the lockup runs without it for
+                visual cleanliness — this is intentional, not an omission.
+              </p>
+            </div>
+          </div>
+
+          <h3>Icon Colour Variants — On Every Background</h3>
+          <p>
+            The icon exists in exactly three colours:
+            <strong>Engine Red</strong>, <strong>White</strong> and
+            <strong>Black</strong> — nothing else, ever. These four panels are
+            the only approved background pairings. Red-on-black is the primary
+            expression of the brand.
+          </p>
+          <div class="dgrid g4">
+            <div class="lg-panel" style="background: var(--black)">
+              <img
+                src="logo.png"
+                alt="Red icon on black"
+                onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='https://static.wixstatic.com/media/e5091e_c1bac369cae741d08b2e7e9c95df371b~mv2.png/v1/fill/w_168,h_168,al_c,q_85,enc_avif,quality_auto/e5091e_c1bac369cae741d08b2e7e9c95df371b~mv2.png'}else{this.style.display='none'}"
+              />
+              <span class="lg-tag" style="color: var(--white-dim)"
+                >Red on Black — Primary</span
+              >
+            </div>
+            <div class="lg-panel lg-white" style="background: var(--red)">
+              <img
+                src="logo.png"
+                alt="White icon on red"
+                onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='https://static.wixstatic.com/media/e5091e_c1bac369cae741d08b2e7e9c95df371b~mv2.png/v1/fill/w_168,h_168,al_c,q_85,enc_avif,quality_auto/e5091e_c1bac369cae741d08b2e7e9c95df371b~mv2.png'}else{this.style.display='none'}"
+              />
+              <span class="lg-tag" style="color: rgba(248, 248, 246, 0.8)"
+                >White on Red</span
+              >
+            </div>
+            <div class="lg-panel" style="background: #f8f8f6">
+              <img
+                src="logo-1.png"
+                alt="Red icon on white"
+                onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='https://static.wixstatic.com/media/e5091e_c1bac369cae741d08b2e7e9c95df371b~mv2.png/v1/fill/w_168,h_168,al_c,q_85,enc_avif,quality_auto/e5091e_c1bac369cae741d08b2e7e9c95df371b~mv2.png'}else{this.style.display='none'}"
+              />
+              <span class="lg-tag" style="color: rgba(5, 5, 5, 0.6)"
+                >Red on White — print, light docs</span
+              >
+            </div>
+            <div class="lg-panel lg-black" style="background: #f8f8f6">
+              <img
+                src="logo.png"
+                alt="Black icon on white"
+                onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='https://static.wixstatic.com/media/e5091e_c1bac369cae741d08b2e7e9c95df371b~mv2.png/v1/fill/w_168,h_168,al_c,q_85,enc_avif,quality_auto/e5091e_c1bac369cae741d08b2e7e9c95df371b~mv2.png'}else{this.style.display='none'}"
+              />
+              <span class="lg-tag" style="color: rgba(5, 5, 5, 0.6)"
+                >Black on White — mono print, invoices</span
+              >
+            </div>
+          </div>
+          <p
+            style="
+              font-family: var(--mono);
+              font-size: 0.68rem;
+              color: var(--white-mute);
+              margin-top: 10px;
+            "
+          >
+            Note: the white and black versions on this page are rendered live
+            from the single red master via CSS filter — proof one transparent
+            file can drive every panel. Real exported files are still mandatory
+            for social and print (Section 15).
+          </p>
+
+          <h3>Clear Space &amp; Minimum Size</h3>
+          <p>
+            Clear space on all sides equals the height of the icon's head (the
+            octagon) — call it <strong>1x</strong>. Nothing enters this zone: no
+            text, no other logos, no edges of the canvas.
+          </p>
+          <div class="clearspace">
+            <img
+              src="logo.png"
+              alt="Clear space demonstration"
+              onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='https://static.wixstatic.com/media/e5091e_c1bac369cae741d08b2e7e9c95df371b~mv2.png/v1/fill/w_168,h_168,al_c,q_85,enc_avif,quality_auto/e5091e_c1bac369cae741d08b2e7e9c95df371b~mv2.png'}else{this.style.display='none'}"
+            />
+            <span
+              class="cs-x"
+              style="top: 8px; left: 50%; transform: translateX(-50%)"
+              >1x</span
+            >
+            <span
+              class="cs-x"
+              style="bottom: 8px; left: 50%; transform: translateX(-50%)"
+              >1x</span
+            >
+            <span
+              class="cs-x"
+              style="left: 8px; top: 50%; transform: translateY(-50%)"
+              >1x</span
+            >
+            <span
+              class="cs-x"
+              style="right: 8px; top: 50%; transform: translateY(-50%)"
+              >1x</span
+            >
+          </div>
+          <div class="tbl-wrap">
+            <table class="ds-table">
+              <tr>
+                <th>Context</th>
+                <th>Minimum Size</th>
+                <th>Notes</th>
+              </tr>
+              <tr>
+                <td><b>Icon — digital</b></td>
+                <td><code>24 x 24 px</code></td>
+                <td>
+                  Below this the arrows lose definition. Favicon sizes (16px)
+                  use the icon alone at maximum simplification — acceptable only
+                  as favicon.
+                </td>
+              </tr>
+              <tr>
+                <td><b>Icon — print</b></td>
+                <td><code>10 mm</code></td>
+                <td>Business cards, merch tags.</td>
+              </tr>
+              <tr>
+                <td><b>Digital lockup</b></td>
+                <td><code>140 px wide</code></td>
+                <td>
+                  Below 140px, drop the tagline line first; below 110px, use the
+                  icon alone.
+                </td>
+              </tr>
+              <tr>
+                <td><b>Avatar / profile</b></td>
+                <td><code>—</code></td>
+                <td>
+                  Icon only, centred at ~70% of the circle diameter, red on
+                  black background.
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <h3>Misuse — Never Do This</h3>
+          <p>
+            Each tile below distorts the real file with display effects to
+            demonstrate the violation. The file itself is never altered — and
+            neither should yours be.
+          </p>
+          <div class="dgrid g3">
+            <div class="mis">
+              <img
+                src="logo.png"
+                alt=""
+                style="transform: scaleX(1.6)"
+                onerror="this.style.display='none'"
+              />
+              <div class="mis-label">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  aria-hidden="true"
+                >
+                  <path d="M18 6 6 18" />
+                  <path d="m6 6 12 12" /></svg
+                >Never stretch or squash
+              </div>
+            </div>
+            <div class="mis">
+              <img
+                src="logo.png"
+                alt=""
+                style="transform: rotate(24deg)"
+                onerror="this.style.display='none'"
+              />
+              <div class="mis-label">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  aria-hidden="true"
+                >
+                  <path d="M18 6 6 18" />
+                  <path d="m6 6 12 12" /></svg
+                >Never rotate or tilt
+              </div>
+            </div>
+            <div class="mis">
+              <img
+                src="logo.png"
+                alt=""
+                style="filter: hue-rotate(140deg) saturate(2)"
+                onerror="this.style.display='none'"
+              />
+              <div class="mis-label">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  aria-hidden="true"
+                >
+                  <path d="M18 6 6 18" />
+                  <path d="m6 6 12 12" /></svg
+                >Never recolour outside palette
+              </div>
+            </div>
+            <div class="mis">
+              <img
+                src="logo.png"
+                alt=""
+                style="filter: drop-shadow(4px 6px 4px rgba(232, 34, 26, 0.9))"
+                onerror="this.style.display='none'"
+              />
+              <div class="mis-label">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  aria-hidden="true"
+                >
+                  <path d="M18 6 6 18" />
+                  <path d="m6 6 12 12" /></svg
+                >No shadows, glows or effects
+              </div>
+            </div>
+            <div
+              class="mis"
+              style="
+                background-image: repeating-linear-gradient(
+                  45deg,
+                  var(--red) 0 10px,
+                  var(--ink) 10px 20px
+                );
+              "
+            >
+              <img src="logo.png" alt="" onerror="this.style.display='none'" />
+              <div class="mis-label">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  aria-hidden="true"
+                >
+                  <path d="M18 6 6 18" />
+                  <path d="m6 6 12 12" /></svg
+                >Never place on busy backgrounds
+              </div>
+            </div>
+            <div class="mis">
+              <img
+                src="logo.png"
+                alt=""
+                style="opacity: 0.28"
+                onerror="this.style.display='none'"
+              />
+              <div class="mis-label">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  aria-hidden="true"
+                >
+                  <path d="M18 6 6 18" />
+                  <path d="m6 6 12 12" /></svg
+                >No transparency or watermarking
+              </div>
+            </div>
+          </div>
+          <div class="dcallout" style="margin-top: 24px">
+            <strong>And above all: never redraw it.</strong> No tracing "a
+            cleaner version", no AI regeneration, no simplified variant for
+            small sizes. If a context cannot fit the official files, the context
+            changes — not the icon.
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 03 COLOUR ============ -->
+      <section class="dsec" id="color">
+        <div class="container">
+          <div class="dsec-num">Section 03</div>
+          <h2 class="dsec-title">Colour <span class="t-red">System</span></h2>
+          <p class="dsec-intro">
+            One red. One black family. One white family. No other hue exists
+            anywhere in the brand — not even green for success states. Click any
+            swatch to copy its hex.
+          </p>
+
+          <div class="dcallout">
+            <strong>Engine Red is the one true red.</strong> As of June 2026,
+            <strong>#E8221A</strong> is the single brand red across every
+            surface — digital, social, print and all future logo exports. The
+            original logo red <strong>#aa1e22</strong> is retired as "Legacy
+            Red": acceptable only on already-printed material until reprint.
+            Never use it in new work, and never mix the two reds in one
+            composition.
+          </div>
+
+          <h3>The Palette — Click To Copy</h3>
+          <div class="dgrid g3">
+            <div class="swatch" data-hex="#E8221A">
+              <div class="sw-chip" style="background: #e8221a; color: #f8f8f6">
+                Engine Red
+              </div>
+              <div class="sw-body">
+                <b>Engine Red — Primary</b><code>#E8221A · var(--red)</code>
+                <p>
+                  CTAs, accents, the word "Engineer", icon fills, key data. The
+                  signal colour — never the wallpaper.
+                </p>
+              </div>
+              <span class="copied">Copied</span>
+            </div>
+            <div class="swatch" data-hex="#C01A14">
+              <div class="sw-chip" style="background: #c01a14; color: #f8f8f6">
+                Red Dark
+              </div>
+              <div class="sw-body">
+                <b>Red Dark — Hover</b><code>#C01A14 · var(--red-dark)</code>
+                <p>
+                  Hover and active states of red elements. Never a resting
+                  colour.
+                </p>
+              </div>
+              <span class="copied">Copied</span>
+            </div>
+            <div class="swatch" data-hex="rgba(232,34,26,0.10)">
+              <div
+                class="sw-chip"
+                style="background: rgba(232, 34, 26, 0.1); color: #f8f8f6"
+              >
+                Red Dim
+              </div>
+              <div class="sw-body">
+                <b>Red Dim — Tint</b
+                ><code>rgba(232,34,26,.10) · var(--red-dim)</code>
+                <p>Subtle red wash behind icons and highlighted panels.</p>
+              </div>
+              <span class="copied">Copied</span>
+            </div>
+            <div class="swatch" data-hex="#050505">
+              <div
+                class="sw-chip"
+                style="
+                  background: #050505;
+                  color: #f8f8f6;
+                  border-bottom: 1px solid #222;
+                "
+              >
+                Black
+              </div>
+              <div class="sw-body">
+                <b>Black — Page Base</b><code>#050505 · var(--black)</code>
+                <p>Default page background. The brand lives in the dark.</p>
+              </div>
+              <span class="copied">Copied</span>
+            </div>
+            <div class="swatch" data-hex="#0D0D0D">
+              <div class="sw-chip" style="background: #0d0d0d; color: #f8f8f6">
+                Ink
+              </div>
+              <div class="sw-body">
+                <b>Ink — Section Alt</b><code>#0D0D0D · var(--ink)</code>
+                <p>Alternating section background against Black.</p>
+              </div>
+              <span class="copied">Copied</span>
+            </div>
+            <div class="swatch" data-hex="#161616">
+              <div class="sw-chip" style="background: #161616; color: #f8f8f6">
+                Dark
+              </div>
+              <div class="sw-body">
+                <b>Dark — Surfaces</b><code>#161616 · var(--dark)</code>
+                <p>Cards, panels, form fields. The surface layer.</p>
+              </div>
+              <span class="copied">Copied</span>
+            </div>
+            <div class="swatch" data-hex="#222222">
+              <div class="sw-chip" style="background: #222222; color: #f8f8f6">
+                Mid
+              </div>
+              <div class="sw-body">
+                <b>Mid — Borders</b><code>#222222 · var(--mid)</code>
+                <p>Borders, dividers, table lines. Structure without noise.</p>
+              </div>
+              <span class="copied">Copied</span>
+            </div>
+            <div class="swatch" data-hex="#F8F8F6">
+              <div class="sw-chip" style="background: #f8f8f6; color: #050505">
+                White
+              </div>
+              <div class="sw-body">
+                <b>White — Type</b><code>#F8F8F6 · var(--white)</code>
+                <p>Headlines and emphasis. Warm white — never pure #FFFFFF.</p>
+              </div>
+              <span class="copied">Copied</span>
+            </div>
+            <div class="swatch" data-hex="rgba(248,248,246,0.65)">
+              <div
+                class="sw-chip"
+                style="background: rgba(248, 248, 246, 0.65); color: #050505"
+              >
+                White Dim
+              </div>
+              <div class="sw-body">
+                <b>White Dim — Body</b
+                ><code>rgba(248,248,246,.65) · var(--white-dim)</code>
+                <p>Body copy on dark backgrounds.</p>
+              </div>
+              <span class="copied">Copied</span>
+            </div>
+          </div>
+
+          <h3>Usage Ratio</h3>
+          <div
+            style="
+              display: flex;
+              height: 46px;
+              border: 1px solid var(--mid);
+              margin-bottom: 12px;
+              font-family: var(--mono);
+              font-size: 0.58rem;
+              font-weight: 700;
+              letter-spacing: 0.1em;
+              text-transform: uppercase;
+            "
+          >
+            <div
+              style="
+                flex: 0 0 70%;
+                background: var(--black);
+                color: var(--white-dim);
+                display: flex;
+                align-items: center;
+                padding-left: 14px;
+              "
+            >
+              70% Black family
+            </div>
+            <div
+              style="
+                flex: 0 0 20%;
+                background: #f8f8f6;
+                color: #050505;
+                display: flex;
+                align-items: center;
+                padding-left: 14px;
+              "
+            >
+              20% White
+            </div>
+            <div
+              style="
+                flex: 0 0 10%;
+                background: var(--red);
+                color: var(--white);
+                display: flex;
+                align-items: center;
+                padding-left: 14px;
+              "
+            >
+              10%
+            </div>
+          </div>
+          <p>
+            Roughly 70% black-family surfaces, 20% white typography,
+            <strong>10% Engine Red</strong>. Red earns attention by being
+            scarce. A layout that is one-third red is a layout that is shouting.
+          </p>
+
+          <div class="dcallout">
+            <strong>The no-green law.</strong> There is no green anywhere in
+            this brand — not for success messages, not for WhatsApp buttons, not
+            for "completed" states. Success is Engine Red with a check icon.
+            This is deliberate and non-negotiable.
+          </div>
+
+          <h3>Contrast &amp; Accessibility (WCAG)</h3>
+          <div class="tbl-wrap">
+            <table class="ds-table">
+              <tr>
+                <th>Foreground</th>
+                <th>Background</th>
+                <th>Ratio</th>
+                <th>AA</th>
+                <th>Verdict</th>
+              </tr>
+              <tr>
+                <td><code>#F8F8F6</code> White</td>
+                <td><code>#050505</code> Black</td>
+                <td><b>19.2:1</b></td>
+                <td class="t-pass">Pass</td>
+                <td>Body copy, headlines — use freely.</td>
+              </tr>
+              <tr>
+                <td><code>#E8221A</code> Red</td>
+                <td><code>#050505</code> Black</td>
+                <td><b>4.5:1</b></td>
+                <td class="t-pass">Pass</td>
+                <td>Accent words, labels, icons. Avoid long red paragraphs.</td>
+              </tr>
+              <tr>
+                <td><code>#F8F8F6</code> White</td>
+                <td><code>#E8221A</code> Red</td>
+                <td><b>4.2:1</b></td>
+                <td class="t-fail">Large only</td>
+                <td>
+                  Reserved for bold uppercase CTA labels and display type. Never
+                  small body text on red.
+                </td>
+              </tr>
+              <tr>
+                <td><code>rgba(248,248,246,.65)</code></td>
+                <td><code>#0D0D0D</code> Ink</td>
+                <td><b>11.5:1</b></td>
+                <td class="t-pass">Pass</td>
+                <td>Standard body treatment.</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 04 TYPOGRAPHY ============ -->
+      <section class="dsec" id="type">
+        <div class="container">
+          <div class="dsec-num">Section 04</div>
+          <h2 class="dsec-title">Typo<span class="t-red">graphy</span></h2>
+          <p class="dsec-intro">
+            Three typefaces, three jobs, zero exceptions. Bebas Neue shouts,
+            Inter explains, Space Mono engineers. All free via Google Fonts.
+          </p>
+
+          <div class="dgrid g3">
+            <div class="spec">
+              <span class="sp-aa sp-bebas">Aa</span>
+              <span class="sp-name sp-bebas">Bebas Neue</span>
+              <span class="sp-role"
+                >Display · Headlines · Always Uppercase</span
+              >
+              <p class="sp-set sp-bebas" style="font-size: 1.05rem">
+                IGNITE. IMPROVE. INSPIRE. ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789
+              </p>
+              <p style="font-size: 0.74rem; margin: 12px 0 0">
+                Weight 400 only — never bold, never italic. Letter-spacing .02
+                to .04em. Line-height .96 to 1.05.
+              </p>
+            </div>
+            <div class="spec">
+              <span class="sp-aa sp-inter" style="font-weight: 300">Aa</span>
+              <span class="sp-name sp-inter" style="font-weight: 700"
+                >Inter</span
+              >
+              <span class="sp-role">Body · UI · 300 to 700</span>
+              <p class="sp-set sp-inter" style="font-weight: 300">
+                Science and passion meet to shape your fitness journey.
+                abcdefghijklmnopqrstuvwxyz 0123456789
+              </p>
+              <p style="font-size: 0.74rem; margin: 12px 0 0">
+                Body runs Light 300 at line-height 1.8. Emphasis at 600 to 700
+                in white. Sentence case always.
+              </p>
+            </div>
+            <div class="spec">
+              <span class="sp-aa sp-mono" style="font-weight: 700">Aa</span>
+              <span class="sp-name sp-mono" style="font-weight: 700"
+                >Space Mono</span
+              >
+              <span class="sp-role">Labels · Data · Technical</span>
+              <p class="sp-set sp-mono" style="font-size: 0.78rem">
+                100 DAYS CHALLENGE · MONEY BACK GUARANTEE · 130+ TRANSFORMATIONS
+              </p>
+              <p style="font-size: 0.74rem; margin: 12px 0 0">
+                Section labels, tags, stats, buttons, fine print. Uppercase,
+                700, letter-spacing .12 to .24em.
+              </p>
+            </div>
+          </div>
+
+          <div class="dcallout">
+            <strong>Cambria is retired.</strong> The original lockup's Cambria
+            wordmark belongs to the legacy print era only. Cambria — and every
+            other typeface (Roboto, Montserrat, Poppins, Lato, Oswald, Anton) —
+            is banned from new work in any medium. Three fonts. No exceptions.
+            System fonts exist only as code fallbacks.
+          </div>
+
+          <h3>Type Scale — As Built In Production</h3>
+          <div class="tbl-wrap">
+            <table class="ds-table">
+              <tr>
+                <th>Role</th>
+                <th>Font</th>
+                <th>Size</th>
+                <th>Spec</th>
+              </tr>
+              <tr>
+                <td><b>Hero headline</b></td>
+                <td>Bebas Neue</td>
+                <td><code>clamp(4.2rem, 10.5vw, 8.8rem)</code></td>
+                <td>400 · line-height .96 · uppercase · one per page</td>
+              </tr>
+              <tr>
+                <td><b>Section title / H2</b></td>
+                <td>Bebas Neue</td>
+                <td><code>clamp(2.6rem, 5.4vw, 4.4rem)</code></td>
+                <td>400 · one word in red or outline style</td>
+              </tr>
+              <tr>
+                <td><b>Card title / H3</b></td>
+                <td>Bebas Neue / Inter 700</td>
+                <td><code>1.15 to 1.5rem</code></td>
+                <td>Bebas in feature cards; Inter 700 uppercase in dense UI</td>
+              </tr>
+              <tr>
+                <td><b>Lead paragraph</b></td>
+                <td>Inter 300</td>
+                <td><code>clamp(.95rem, 1.4vw, 1.05rem)</code></td>
+                <td>line-height 1.75 · max-width ~640px</td>
+              </tr>
+              <tr>
+                <td><b>Body copy</b></td>
+                <td>Inter 300</td>
+                <td><code>.92 to .99rem</code></td>
+                <td>line-height 1.8 · colour var(--white-dim)</td>
+              </tr>
+              <tr>
+                <td><b>Section label</b></td>
+                <td>Space Mono 700</td>
+                <td><code>.62rem</code></td>
+                <td>uppercase · letter-spacing .24em · red, with rule line</td>
+              </tr>
+              <tr>
+                <td><b>Button label</b></td>
+                <td>Space Mono 700</td>
+                <td><code>.72rem</code></td>
+                <td>uppercase · letter-spacing .14em</td>
+              </tr>
+              <tr>
+                <td><b>Fine print / meta</b></td>
+                <td>Space Mono</td>
+                <td><code>.56 to .66rem</code></td>
+                <td>uppercase · colour var(--white-mute)</td>
+              </tr>
+            </table>
+          </div>
+
+          <h3>Signature Treatments</h3>
+          <div class="dgrid g2">
+            <div class="dcard">
+              <h4 style="font-size: 2rem">
+                Real <span class="t-red">Results.</span>
+              </h4>
+              <p>
+                <strong>Red word:</strong> exactly one word per headline takes
+                var(--red). The most loaded word — never a random one, never
+                two.
+              </p>
+            </div>
+            <div class="dcard">
+              <h4 style="font-size: 2rem">
+                <span class="t-outline">Inspire.</span>
+              </h4>
+              <p>
+                <strong>Outline word:</strong> transparent fill with a 1px white
+                stroke (-webkit-text-stroke). Use for the aspirational word.
+                Bebas only, large sizes only — the stroke breaks below ~2rem.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 05 LAYOUT & TEXTURE ============ -->
+      <section class="dsec" id="layout">
+        <div class="container">
+          <div class="dsec-num">Section 05</div>
+          <h2 class="dsec-title">
+            Layout, Grid &amp; <span class="t-red">Texture</span>
+          </h2>
+          <p class="dsec-intro">
+            Editorial asymmetry on a disciplined frame. Generous section
+            padding, sharp corners, and a texture on every surface — felt, never
+            seen.
+          </p>
+
+          <h3>Frame &amp; Breakpoints</h3>
+          <div class="tbl-wrap">
+            <table class="ds-table">
+              <tr>
+                <th>Property</th>
+                <th>Value</th>
+                <th>Notes</th>
+              </tr>
+              <tr>
+                <td><b>Max content width</b></td>
+                <td><code>1280px</code></td>
+                <td>.container · 24px side padding</td>
+              </tr>
+              <tr>
+                <td><b>Section padding</b></td>
+                <td><code>~96 to 110px</code> vertical</td>
+                <td>Whitespace is part of the brand. Never compress to fit.</td>
+              </tr>
+              <tr>
+                <td><b>Breakpoints</b></td>
+                <td><code>901px · 768px · 480px</code></td>
+                <td>
+                  Exactly three. 901 collapses nav to burger and grids to 2-col;
+                  768 simplifies hero; 480 is single column. Never invent a
+                  fourth.
+                </td>
+              </tr>
+              <tr>
+                <td><b>Corners</b></td>
+                <td><code>0px radius</code></td>
+                <td>
+                  The brand is sharp. No rounded corners anywhere — the only
+                  "cut" allowed is the button corner clip.
+                </td>
+              </tr>
+              <tr>
+                <td><b>Spacing rhythm</b></td>
+                <td><code>4px base</code></td>
+                <td>
+                  Gaps and padding in multiples of 4: 8, 12, 16, 24, 32, 48, 64.
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <h3>The Corner Clip — Signature Shape</h3>
+          <div class="dgrid g2">
+            <div class="dcard">
+              <a class="btn btn-red" href="#layout" style="margin-bottom: 14px"
+                >Signature Button</a
+              >
+              <p>
+                Every red CTA carries a 13px clipped corner, bottom-right:<br /><code
+                  style="
+                    font-family: var(--mono);
+                    font-size: 0.68rem;
+                    color: var(--red);
+                  "
+                  >clip-path: polygon(0 0, 100% 0, 100% calc(100% - 13px),
+                  calc(100% - 13px) 100%, 0 100%)</code
+                >
+              </p>
+            </div>
+            <div class="dcard">
+              <h4>Photo Frame Clip</h4>
+              <p>
+                Hero and feature photos cut two opposing corners:<br /><code
+                  style="
+                    font-family: var(--mono);
+                    font-size: 0.68rem;
+                    color: var(--red);
+                  "
+                  >clip-path: polygon(9% 0, 100% 0, 100% 89%, 91% 100%, 0 100%,
+                  0 11%)</code
+                ><br />Use on hero-scale imagery only — never on small
+                thumbnails.
+              </p>
+            </div>
+          </div>
+
+          <h3>Texture Library — Live Swatches</h3>
+          <p>
+            Every section background carries exactly one texture at whisper
+            opacity (.03 to .12). Textures layer on Black or Ink — never on
+            photos, never two at once.
+          </p>
+          <div class="dgrid g4">
+            <div class="tex tex-noise">
+              <span class="tex-label">Noise · feTurbulence</span>
+            </div>
+            <div class="tex tex-h45">
+              <span class="tex-label">Hatch 45</span>
+            </div>
+            <div class="tex tex-h-45">
+              <span class="tex-label">Hatch -45</span>
+            </div>
+            <div class="tex tex-h60">
+              <span class="tex-label">Hatch 60</span>
+            </div>
+            <div class="tex tex-dot">
+              <span class="tex-label">Dot Grid · masked</span>
+            </div>
+            <div class="tex tex-scan">
+              <span class="tex-label">Scanlines · photos only</span>
+            </div>
+            <div class="tex tex-stripe">
+              <span class="tex-label">Red Stripes · guarantee bar</span>
+            </div>
+            <div
+              class="tex"
+              style="
+                background: radial-gradient(
+                  circle at 70% 30%,
+                  rgba(232, 34, 26, 0.18),
+                  transparent 60%
+                );
+              "
+            >
+              <span class="tex-label">Red Glow · heroes</span>
+            </div>
+          </div>
+          <p
+            style="
+              font-family: var(--mono);
+              font-size: 0.68rem;
+              color: var(--white-mute);
+              margin-top: 12px;
+            "
+          >
+            Noise data-URI lives in the site source — copy it from any section's
+            ::before. Inside CSS url(), single quotes must be encoded as %27 or
+            swapped for double quotes, or the whole style block silently dies.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ 06 ICONOGRAPHY ============ -->
+      <section class="dsec" id="icons">
+        <div class="container">
+          <div class="dsec-num">Section 06</div>
+          <h2 class="dsec-title">Icono<span class="t-red">graphy</span></h2>
+          <p class="dsec-intro">
+            Inline SVG line icons in the Lucide style — 2px stroke, round caps
+            and joins, 24px viewBox. Nothing else renders an icon in this brand.
+          </p>
+
+          <div class="dgrid g2" style="margin-bottom: 26px">
+            <div class="dcard">
+              <h4>Sizes</h4>
+              <p>
+                <code style="font-family: var(--mono); color: var(--red)"
+                  >.ic — 22px</code
+                >
+                standard UI and card icons.<br /><code
+                  style="font-family: var(--mono); color: var(--red)"
+                  >.ic-s — 16px</code
+                >
+                inline with text, buttons, lists.<br />Icons take currentColor:
+                red in accents, white in neutral chrome.
+              </p>
+            </div>
+            <div class="dcard">
+              <h4>Banned Forever</h4>
+              <p>
+                Emojis (everywhere — website, social graphics, captions, decks).
+                Icon fonts. PNG or JPG icons. Externally-linked SVG sprites.
+                Filled/duotone icon styles. The diamond separator and arrows do
+                the expressive work.
+              </p>
+            </div>
+          </div>
+
+          <h3>The Working Set</h3>
+          <div class="icogrid">
+            <div class="ico">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" /></svg
+              ><span>arrow</span>
+            </div>
+            <div class="ico">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+                <path d="M4 22h16" />
+                <path
+                  d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"
+                />
+                <path
+                  d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"
+                />
+                <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" /></svg
+              ><span>trophy</span>
+            </div>
+            <div class="ico">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"
+                /></svg
+              ><span>flame</span>
+            </div>
+            <div class="ico">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
+                />
+                <path d="m9 12 2 2 4-4" /></svg
+              ><span>shield</span>
+            </div>
+            <div class="ico">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <circle cx="12" cy="12" r="6" />
+                <circle cx="12" cy="12" r="2" /></svg
+              ><span>target</span>
+            </div>
+            <div class="ico">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"
+                />
+                <path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27" /></svg
+              ><span>pulse</span>
+            </div>
+            <div class="ico">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                />
+                <path d="m9 14 2 2 4-4" /></svg
+              ><span>check-in</span>
+            </div>
+            <div class="ico">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                /></svg
+              ><span>chat</span>
+            </div>
+            <div class="ico">
+              <svg
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                stroke="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41l-7.59-7.59a2.41 2.41 0 0 0-3.41 0Z"
+                /></svg
+              ><span>diamond</span>
+            </div>
+            <div class="ico">
+              <svg
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                stroke="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                /></svg
+              ><span>star</span>
+            </div>
+            <div class="ico">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <line x1="10" x2="10" y1="15" y2="9" />
+                <line x1="14" x2="14" y1="15" y2="9" /></svg
+              ><span>pause</span>
+            </div>
+            <div class="ico">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4Zm0 0c2 2.67 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.33-6 4Z"
+                /></svg
+              ><span>infinity</span>
+            </div>
+          </div>
+          <p>
+            The two filled exceptions — the diamond separator and the rating
+            star — are the only solid glyphs permitted. New icons must come from
+            the same family (Lucide), 2px stroke, inlined in markup.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ 07 PHOTOGRAPHY ============ -->
+      <section class="dsec" id="photo">
+        <div class="container">
+          <div class="dsec-num">Section 07</div>
+          <h2 class="dsec-title">
+            Photography &amp; <span class="t-red">Art Direction</span>
+          </h2>
+          <p class="dsec-intro">
+            Real people, real grain, real effort. Photography is proof — treat
+            it like evidence, not decoration.
+          </p>
+
+          <div class="dgrid g2">
+            <div class="dcard">
+              <h4 style="color: var(--white)">Approved</h4>
+              <p>
+                Real clients and real training. Gym grit, sweat, honest
+                lighting. Before/after pairs shot same pose, same distance, same
+                light. Coach Amar candid and working. Grayscale-base treatment
+                with colour on interaction. Dark, moody backgrounds that let red
+                signage breathe.
+              </p>
+            </div>
+            <div class="dcard" style="border-top: 3px solid var(--red)">
+              <h4 style="color: var(--red)">Rejected</h4>
+              <p>
+                Stock models with studio smiles. Neon gym aesthetics.
+                AI-generated physiques or "enhanced" results — instant brand
+                death for a guarantee-led business. Watermarked images.
+                Oversaturated colour. Anything that looks like a supplement ad.
+              </p>
+            </div>
+          </div>
+
+          <h3>Signature Treatments — Live</h3>
+          <div class="dgrid g3">
+            <div>
+              <div class="photo-demo">
+                <img
+                  src="https://static.wixstatic.com/media/e5091e_633cefaf840f4e2a832d213364d60e5f~mv2.jpg/v1/fit/w_800,h_1000,q_90,enc_avif,quality_auto/e5091e_633cefaf840f4e2a832d213364d60e5f~mv2.jpg"
+                  alt="Treatment demo — grayscale to colour"
+                  loading="lazy"
+                  onerror="this.onerror=null;this.style.display='none'"
+                /><span class="pd-tag">Before / After</span>
+              </div>
+              <p class="mock-cap">
+                Grayscale at rest, colour + 1.05 scale on hover
+              </p>
+            </div>
+            <div>
+              <div class="photo-demo pd-scan">
+                <img
+                  src="https://static.wixstatic.com/media/e5091e_fa84e62cc8cb45c6b7730878fa9341f4~mv2.jpg/v1/fill/w_736,h_1114,al_c,q_85,enc_avif,quality_auto/IMG_2425%20IQ.jpg"
+                  alt="Treatment demo — scanlines"
+                  loading="lazy"
+                  style="filter: none"
+                  onerror="this.onerror=null;this.style.display='none'"
+                />
+              </div>
+              <p class="mock-cap">Scanline overlay — hero portraits only</p>
+            </div>
+            <div>
+              <div
+                class="photo-demo"
+                style="
+                  border: 1px solid var(--red);
+                  clip-path: polygon(
+                    9% 0,
+                    100% 0,
+                    100% 89%,
+                    91% 100%,
+                    0 100%,
+                    0 11%
+                  );
+                "
+              >
+                <img
+                  src="https://static.wixstatic.com/media/e5091e_3dc85916f2a34fd6a1487f5c0a8795e8~mv2.jpg/v1/fit/w_800,h_1000,q_90,enc_avif,quality_auto/e5091e_3dc85916f2a34fd6a1487f5c0a8795e8~mv2.jpg"
+                  alt="Treatment demo — clip frame"
+                  loading="lazy"
+                  onerror="this.onerror=null;this.style.display='none'"
+                />
+              </div>
+              <p class="mock-cap">Clipped frame + red border — features</p>
+            </div>
+          </div>
+
+          <div class="dcallout">
+            <strong>The consent law.</strong> No client photo, result or
+            testimonial goes public — website, social, decks, anywhere — without
+            explicit written consent on record. This is promised in our Terms
+            and it is absolute. Transformation crops stay 3:4, faces may be
+            cropped or blurred on request, and the "Before / After" tag is
+            always honest: same person, real timeline, no editing of bodies.
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 08 MOTION ============ -->
+      <section class="dsec" id="motion">
+        <div class="container">
+          <div class="dsec-num">Section 08</div>
+          <h2 class="dsec-title">
+            Motion <span class="t-red">Standards</span>
+          </h2>
+          <p class="dsec-intro">
+            Fast, purposeful, engineered. One easing curve runs the whole brand.
+            If an animation doesn't clarify hierarchy or reward intent, it
+            doesn't exist.
+          </p>
+
+          <div class="dcallout">
+            <strong>The one easing:</strong>
+            <code style="font-family: var(--mono); color: var(--red)"
+              >cubic-bezier(.22, .86, .36, 1)</code
+            >
+            — var(--ease). Confident start, soft landing. No bounce, no elastic,
+            no spring. Ever.
+          </div>
+
+          <div class="dgrid g3">
+            <div class="motion-demo">
+              <span class="md-name">Scroll Reveal</span
+              ><span class="md-spec"
+                >opacity 0 to 1 · translateY 28px to 0 · .8s var(--ease)</span
+              >
+              <p>
+                IntersectionObserver at 10% threshold. Stagger siblings with .1s
+                delay steps (delay-1 through delay-8).
+              </p>
+            </div>
+            <div class="motion-demo">
+              <span class="md-name">Stat Counter</span
+              ><span class="md-spec"
+                >1800ms · cubic ease-out · fires at 40% visible</span
+              >
+              <p>
+                Numbers count up once, suffix in red. Demo:
+                <b
+                  style="
+                    font-family: var(--bebas);
+                    font-size: 1.6rem;
+                    color: var(--white);
+                  "
+                  ><span class="demo-count" data-count="130">0</span
+                  ><em style="font-style: normal; color: var(--red)">+</em></b
+                >
+              </p>
+            </div>
+            <div class="motion-demo">
+              <span class="md-name">Card Lift</span
+              ><span class="md-spec"
+                >translateY(-4 to -6px) · border turns red · .3s</span
+              >
+              <p>
+                Hover on cards. Shadow deepens with lift; never scale a card.
+              </p>
+            </div>
+            <div class="motion-demo">
+              <span class="md-name">Button Ripple + Shimmer</span
+              ><span class="md-spec"
+                >ripple 600ms · shimmer sweep on hover</span
+              >
+              <p>
+                Red CTAs only. Ripple expands from click point at 35% white.
+              </p>
+            </div>
+            <div class="motion-demo">
+              <span class="md-name">Marquee Ticker</span
+              ><span class="md-spec"
+                >28s linear infinite · pauses on hover</span
+              >
+              <p>
+                Duplicated track, aria-hidden on the clone. Red band, black
+                diamonds.
+              </p>
+            </div>
+            <div class="motion-demo">
+              <span class="md-name">Hero Parallax</span
+              ><span class="md-spec">factor 0.08 · disabled on touch</span>
+              <p>
+                Photo drifts against scroll. Subtle — if you notice it moving,
+                it's too much.
+              </p>
+            </div>
+          </div>
+
+          <div class="dcallout" style="margin-top: 26px">
+            <strong>Reduced motion is sacred.</strong> When
+            prefers-reduced-motion is set, everything above dies instantly:
+            reveals render visible, counters print final values, marquee
+            freezes, parallax and custom cursor disable. This is shipped
+            behaviour — never remove it.
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 09 COMPONENTS ============ -->
+      <section class="dsec" id="components">
+        <div class="container">
+          <div class="dsec-num">Section 09</div>
+          <h2 class="dsec-title">
+            Component <span class="t-red">Library</span>
+          </h2>
+          <p class="dsec-intro">
+            The working UI kit, rendered live from production CSS. The website
+            source (index.html) is the canonical implementation — copy from
+            there, not from screenshots.
+          </p>
+
+          <h3>Buttons</h3>
+          <div class="dgrid g2">
+            <div class="dcard">
+              <div
+                style="
+                  display: flex;
+                  gap: 14px;
+                  flex-wrap: wrap;
+                  margin-bottom: 16px;
+                "
+              >
+                <a class="btn btn-red" href="#components"
+                  >Start Your Transformation
+                  <svg
+                    class="ic-s"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </a>
+                <a class="btn btn-ghost" href="#components">Explore Plans</a>
+              </div>
+              <p>
+                <strong>Primary (red):</strong> corner clip, shimmer on hover,
+                ripple on click, arrow icon for forward actions. One primary CTA
+                per viewport. <strong>Ghost:</strong> secondary actions, turns
+                red on hover.
+              </p>
+            </div>
+            <div class="dcard">
+              <h4>Button Copy Rules</h4>
+              <p>
+                Uppercase mono labels. Action-first verbs: "Start Your
+                Transformation", "Enquire Now", "Send My Details". Never
+                "Submit", never "Click Here", never exclamation marks. The arrow
+                appears on forward motion only — not on "View" or "Explore".
+              </p>
+            </div>
+          </div>
+
+          <h3>Labels, Pills &amp; Chips</h3>
+          <div class="dcard" style="margin-bottom: 14px">
+            <div class="sec-label" style="margin-bottom: 16px">
+              Section Label — Mono · Red · Rule Line
+            </div>
+            <div class="pills" style="margin: 0">
+              <span class="pill">Certified Fitness Expert</span>
+              <span class="pill">100% Natural</span>
+              <span class="pill">PCOS Specialist</span>
+            </div>
+            <p style="margin-top: 16px">
+              Section labels open every section. Pills carry credentials and
+              capabilities — mono, bordered, never filled. Filled red chips are
+              reserved for category tags on blog cards and the "Most Popular"
+              plan badge.
+            </p>
+          </div>
+
+          <h3>Cards</h3>
+          <div class="dgrid g3">
+            <article
+              class="dcard"
+              style="
+                border-top: 3px solid transparent;
+                transition: border-color 0.3s, transform 0.3s;
+              "
+              onmouseover="this.style.borderTopColor='#E8221A';this.style.transform='translateY(-4px)'"
+              onmouseout="this.style.borderTopColor='transparent';this.style.transform='none'"
+            >
+              <span class="dc-num">01</span>
+              <div
+                style="
+                  width: 40px;
+                  height: 40px;
+                  border: 1px solid var(--mid);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin-bottom: 14px;
+                "
+              >
+                <svg
+                  class="ic"
+                  style="color: var(--red)"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"
+                  />
+                </svg>
+              </div>
+              <h4>Service Card</h4>
+              <p>
+                Number top-left, icon top-right, Bebas title, short body. Hover:
+                lift + red accent. Used in 6-up service grids.
+              </p>
+            </article>
+            <article class="dcard">
+              <div
+                class="stars"
+                style="display: flex; gap: 4px; margin-bottom: 12px"
+              >
+                <svg
+                  style="width: 14px; height: 14px; color: var(--red)"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  stroke="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                  />
+                </svg>
+                <svg
+                  style="width: 14px; height: 14px; color: var(--red)"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  stroke="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                  />
+                </svg>
+                <svg
+                  style="width: 14px; height: 14px; color: var(--red)"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  stroke="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                  />
+                </svg>
+                <svg
+                  style="width: 14px; height: 14px; color: var(--red)"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  stroke="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                  />
+                </svg>
+                <svg
+                  style="width: 14px; height: 14px; color: var(--red)"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  stroke="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                  />
+                </svg>
+              </div>
+              <p style="font-style: italic; color: var(--white)">
+                "The personalised approach pushed me to achieve the physique I
+                had only dreamt of."
+              </p>
+              <p
+                style="
+                  font-family: var(--mono);
+                  font-size: 0.62rem;
+                  letter-spacing: 0.12em;
+                  text-transform: uppercase;
+                  color: var(--white-mute);
+                  margin: 10px 0 0;
+                "
+              >
+                Sarah · 26 · Client
+              </p>
+              <p style="margin-top: 12px">
+                <strong>Story card:</strong> 5 red stars, italic quote, mono
+                attribution. Big quote mark via CSS content — never typed.
+              </p>
+            </article>
+            <article class="dcard">
+              <h4>Form Field</h4>
+              <label
+                style="
+                  display: block;
+                  font-family: var(--mono);
+                  font-size: 0.6rem;
+                  font-weight: 700;
+                  letter-spacing: 0.14em;
+                  text-transform: uppercase;
+                  color: var(--white-dim);
+                  margin-bottom: 8px;
+                "
+                >Full Name
+                <em style="color: var(--red); font-style: normal">*</em></label
+              >
+              <input
+                type="text"
+                placeholder="Your name"
+                style="
+                  width: 100%;
+                  background: var(--ink);
+                  border: 1px solid var(--mid);
+                  color: var(--white);
+                  font-family: var(--body);
+                  font-size: 0.9rem;
+                  padding: 13px 14px;
+                  outline: none;
+                "
+                onfocus="this.style.borderColor='#E8221A'"
+                onblur="this.style.borderColor='#222222'"
+              />
+              <p style="margin-top: 12px">
+                Dark fields, mono labels, red focus border, red asterisk for
+                required. Honeypot field "company" stays hidden in every form.
+                Success state is the red check panel + WhatsApp button.
+              </p>
+            </article>
+          </div>
+
+          <h3>Component Inventory</h3>
+          <p>
+            Full production set in index.html: navbar (blur + shrink on scroll),
+            mobile overlay menu, hero with line-up animation, marquee ticker,
+            stat counters, service cards, why-cards, plan cards with featured
+            variant, guarantee bar, benefit cells, result figures (grayscale
+            grid), story cards (video-ready), blog cards, FAQ accordion (one
+            open, plus-to-x icon), contact form with success panel, footer.
+            <strong
+              >Rule: never restyle a component locally — change it at the source
+              or not at all.</strong
+            >
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ 10 VOICE & TONE ============ -->
+      <section class="dsec" id="voice">
+        <div class="container">
+          <div class="dsec-num">Section 10</div>
+          <h2 class="dsec-title">
+            Voice &amp; <span class="t-red">Tone</span>
+          </h2>
+          <p class="dsec-intro">
+            The Engineer-Coach: speaks like a builder, never like a salesman.
+            Confident because of evidence, warm because clients are humans,
+            blunt because results demand it.
+          </p>
+
+          <h3>We Sound</h3>
+          <div class="vchips">
+            <span class="vchip vchip-yes">Direct</span>
+            <span class="vchip vchip-yes">Evidence-Led</span>
+            <span class="vchip vchip-yes">Accountable</span>
+            <span class="vchip vchip-yes">Warm, Not Soft</span>
+            <span class="vchip vchip-yes">Indian-Real</span>
+            <span class="vchip vchip-yes">Engineered</span>
+          </div>
+          <h3>We Never Sound</h3>
+          <div class="vchips">
+            <span class="vchip vchip-no">Hype Bro</span>
+            <span class="vchip vchip-no">Miracle Seller</span>
+            <span class="vchip vchip-no">Fear Monger</span>
+            <span class="vchip vchip-no">Guru</span>
+            <span class="vchip vchip-no">Apologetic</span>
+          </div>
+
+          <h3>Vocabulary Bank</h3>
+          <div class="dgrid g2">
+            <div class="dcard">
+              <h4 style="color: var(--white)">Our Words</h4>
+              <p>
+                engineered · protocol · system · accountability · evidence ·
+                check-in · 100 honest days · natural · sustainable · "the plan
+                adapts to you" · "do the work, document the work" ·
+                transformation (earned, never promised free)
+              </p>
+            </div>
+            <div class="dcard" style="border-top: 3px solid var(--red)">
+              <h4 style="color: var(--red)">Banned Words</h4>
+              <p>
+                miracle · magic · hack · shred · detox · fat-burner ·
+                "guaranteed results" without the asterisk · "lose 10kg in 10
+                days" · guru · beast mode · no pain no gain · any medical cure
+                claim (especially around PCOS — we say manage and improve, never
+                cure)
+              </p>
+            </div>
+          </div>
+
+          <h3>Write This, Not That</h3>
+          <div class="tbl-wrap">
+            <table class="ds-table">
+              <tr>
+                <th>Context</th>
+                <th>Write This</th>
+                <th>Not This</th>
+              </tr>
+              <tr>
+                <td><b>Headline</b></td>
+                <td>
+                  "What seems impossible today will soon become your warm-up."
+                </td>
+                <td>"GET RIPPED FAST!!! Limited offer!"</td>
+              </tr>
+              <tr>
+                <td><b>Plan copy</b></td>
+                <td>
+                  "Transform with a certified fitness expert guiding you
+                  personally from day 1."
+                </td>
+                <td>"India's #1 best transformation program ever!"</td>
+              </tr>
+              <tr>
+                <td><b>Guarantee claim</b></td>
+                <td>
+                  "100% money back guarantee* — *T&amp;C apply" with the Terms
+                  link
+                </td>
+                <td>"100% money back guarantee, no questions asked"</td>
+              </tr>
+              <tr>
+                <td><b>Social caption</b></td>
+                <td>
+                  "4 months. Same camera, same light, zero shortcuts. Here is
+                  the protocol behind it."
+                </td>
+                <td>"OMG amazing transformation!! Tag your lazy friend"</td>
+              </tr>
+              <tr>
+                <td><b>PCOS content</b></td>
+                <td>
+                  "Strength training improves insulin sensitivity — here is what
+                  that means for your symptoms."
+                </td>
+                <td>"Cure your PCOS naturally in 30 days!"</td>
+              </tr>
+              <tr>
+                <td><b>WhatsApp reply</b></td>
+                <td>
+                  "Good question. Short answer: yes, with one condition..."
+                </td>
+                <td>"Dear valued customer, greetings of the day..."</td>
+              </tr>
+            </table>
+          </div>
+
+          <h3>Mechanics</h3>
+          <div class="dgrid g2">
+            <div class="dcard">
+              <h4>Always</h4>
+              <p>
+                Sentence case in body copy. Uppercase lives only in Bebas
+                display and mono labels. Short sentences, then explanation.
+                Active voice. Specific numbers over adjectives. The allowed
+                punctuation set beyond ASCII:
+                <span style="font-family: var(--mono); color: var(--red)"
+                  >· — – ' ' " " &hellip;</span
+                >
+                and nothing else.
+              </p>
+            </div>
+            <div class="dcard">
+              <h4>Never</h4>
+              <p>
+                Emojis — anywhere, including captions and DMs. Exclamation marks
+                in marketing copy. ALL-CAPS body sentences. More than one CTA
+                per message. A guarantee mention without its asterisk where it
+                stands as a claim (see the asterisk discipline in Section 14).
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 11 SOCIAL KIT ============ -->
+      <section class="dsec" id="social">
+        <div class="container">
+          <div class="dsec-num">Section 11</div>
+          <h2 class="dsec-title">
+            Social Media <span class="t-red">Kit</span>
+          </h2>
+          <p class="dsec-intro">
+            Instagram is the stage, WhatsApp is the close. Every graphic is
+            black, typographic and unmistakably ours — the feed should look like
+            one continuous brand, not forty different posts.
+          </p>
+
+          <h3>Channels</h3>
+          <div class="tbl-wrap">
+            <table class="ds-table">
+              <tr>
+                <th>Channel</th>
+                <th>Role</th>
+                <th>Identity</th>
+              </tr>
+              <tr>
+                <td><b>Instagram</b></td>
+                <td>Primary — proof, education, brand</td>
+                <td>
+                  <code>@themuscleengineer</code> · avatar: red icon on black
+                </td>
+              </tr>
+              <tr>
+                <td><b>WhatsApp</b></td>
+                <td>Conversion + coaching delivery</td>
+                <td>
+                  <code>+91 97889 66664</code> · every CTA funnels here or to
+                  the site form
+                </td>
+              </tr>
+              <tr>
+                <td><b>YouTube</b></td>
+                <td>Reserved — long-form when ready</td>
+                <td>
+                  Same handle, same avatar. Do not create off-brand
+                  placeholders.
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <h3>Post Templates — Live Mockups</h3>
+          <div class="dgrid g3" style="align-items: start">
+            <div>
+              <div class="mock mock-sq mock-grid45">
+                <div class="mk-brand">
+                  <img
+                    src="logo.png"
+                    alt=""
+                    onerror="this.style.display='none'"
+                  />The Muscle <em>Engineer</em>
+                </div>
+                <span class="mk-label">Insight</span>
+                <div class="mk-head">
+                  Fat loss is a <em>system,</em> not a punishment.
+                </div>
+                <div class="mk-bar"></div>
+                <div class="mk-foot">
+                  <span>@themuscleengineer</span><span>01</span>
+                </div>
+              </div>
+              <p class="mock-cap">1:1 Insight — Bebas line, one red word</p>
+            </div>
+            <div>
+              <div class="mock mock-pt">
+                <div class="mk-brand">
+                  <img
+                    src="logo.png"
+                    alt=""
+                    onerror="this.style.display='none'"
+                  />The Muscle <em>Engineer</em>
+                </div>
+                <span class="mk-label">Transformation</span>
+                <div style="flex: 1; display: flex; gap: 8px; margin: 12px 0">
+                  <div
+                    style="
+                      flex: 1;
+                      background: var(--dark);
+                      border: 1px solid var(--mid);
+                      display: flex;
+                      align-items: end;
+                      padding: 8px;
+                    "
+                  >
+                    <span
+                      style="
+                        font-family: var(--mono);
+                        font-size: 0.5rem;
+                        letter-spacing: 0.14em;
+                        color: var(--white-mute);
+                      "
+                      >BEFORE</span
+                    >
+                  </div>
+                  <div
+                    style="
+                      flex: 1;
+                      background: var(--dark);
+                      border: 1px solid var(--red);
+                      display: flex;
+                      align-items: end;
+                      padding: 8px;
+                    "
+                  >
+                    <span
+                      style="
+                        font-family: var(--mono);
+                        font-size: 0.5rem;
+                        letter-spacing: 0.14em;
+                        color: var(--red);
+                      "
+                      >AFTER</span
+                    >
+                  </div>
+                </div>
+                <div class="mk-head" style="font-size: 1.2rem">
+                  100 days. Zero shortcuts.
+                </div>
+                <div class="mk-foot">
+                  <span>@themuscleengineer</span><span>Consent on file</span>
+                </div>
+              </div>
+              <p class="mock-cap">4:5 Result — written consent mandatory</p>
+            </div>
+            <div>
+              <div class="mock mock-st">
+                <div class="mk-brand">
+                  <img
+                    src="logo.png"
+                    alt=""
+                    onerror="this.style.display='none'"
+                  />TME
+                </div>
+                <span class="mk-label" style="margin-top: auto"
+                  >100 Days Challenge</span
+                >
+                <div class="mk-head" style="font-size: 1.4rem">
+                  Your warm-up is <em>waiting.</em>
+                </div>
+                <div class="mk-bar"></div>
+                <div class="mk-foot" style="margin-top: 14px">
+                  <span>Link in bio</span>
+                </div>
+              </div>
+              <p class="mock-cap">
+                9:16 Story — keep top and bottom 200px clear of UI
+              </p>
+            </div>
+          </div>
+
+          <h3>Canvas Sizes</h3>
+          <div class="tbl-wrap">
+            <table class="ds-table">
+              <tr>
+                <th>Format</th>
+                <th>Dimensions</th>
+                <th>Ratio</th>
+                <th>Notes</th>
+              </tr>
+              <tr>
+                <td><b>Feed post</b></td>
+                <td><code>1080 x 1080</code></td>
+                <td>1:1</td>
+                <td>Insights, quotes, education carousels.</td>
+              </tr>
+              <tr>
+                <td><b>Portrait post</b></td>
+                <td><code>1080 x 1350</code></td>
+                <td>4:5</td>
+                <td>Transformations and stories — maximum feed space.</td>
+              </tr>
+              <tr>
+                <td><b>Story / Reel</b></td>
+                <td><code>1080 x 1920</code></td>
+                <td>9:16</td>
+                <td>Logo within top safe zone; CTA above bottom 250px.</td>
+              </tr>
+              <tr>
+                <td><b>Reel cover</b></td>
+                <td><code>1080 x 1920</code></td>
+                <td>9:16</td>
+                <td>Bebas title centred — must read at grid thumbnail size.</td>
+              </tr>
+              <tr>
+                <td><b>OG / link preview</b></td>
+                <td><code>1200 x 630</code></td>
+                <td>1.91:1</td>
+                <td>Site share image. Black bg, lockup + one line.</td>
+              </tr>
+            </table>
+          </div>
+
+          <h3>Caption Framework — Hook, Proof, Protocol, CTA</h3>
+          <div class="dgrid g4">
+            <div class="dcard">
+              <span class="dc-num">1 · Hook</span>
+              <p>
+                One line that earns the pause. A number, a contradiction, a
+                confession. Never "New post!"
+              </p>
+            </div>
+            <div class="dcard">
+              <span class="dc-num">2 · Proof</span>
+              <p>
+                The evidence: client context, data point, what actually
+                happened. Real numbers beat adjectives.
+              </p>
+            </div>
+            <div class="dcard">
+              <span class="dc-num">3 · Protocol</span>
+              <p>
+                The takeaway they can use today. Give value before the ask —
+                always.
+              </p>
+            </div>
+            <div class="dcard">
+              <span class="dc-num">4 · CTA</span>
+              <p>
+                One only. "DM START" or "Link in bio." Guarantee mentions carry
+                * and "T&amp;C on site."
+              </p>
+            </div>
+          </div>
+
+          <h3>Grid Rhythm &amp; Hashtags</h3>
+          <p>
+            <strong>Feed rotation:</strong> Result, then Insight, then
+            Brand/Coach — repeat. Never two result posts adjacent; proof lands
+            harder framed by education. <strong>Hashtags:</strong> 5 to 8, never
+            30. Core set:
+            <span
+              style="
+                font-family: var(--mono);
+                font-size: 0.74rem;
+                color: var(--red);
+              "
+              >#TheMuscleEngineer #IgniteImproveInspire #100DaysChallenge</span
+            >
+            + 3 to 5 topic tags per post (fat loss, natural bodybuilding, PCOS
+            fitness, online coaching India). No emoji, no "follow for more"
+            begging.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ 12 WEB STANDARDS ============ -->
+      <section class="dsec" id="web">
+        <div class="container">
+          <div class="dsec-num">Section 12</div>
+          <h2 class="dsec-title">Web <span class="t-red">Standards</span></h2>
+          <p class="dsec-intro">
+            For developers. The site is deliberately simple: static,
+            framework-free, fast. Keep it that way.
+          </p>
+
+          <h3>Stack &amp; Architecture</h3>
+          <div class="tbl-wrap">
+            <table class="ds-table">
+              <tr>
+                <th>Layer</th>
+                <th>Decision</th>
+                <th>Why</th>
+              </tr>
+              <tr>
+                <td><b>Hosting</b></td>
+                <td>GitHub Pages, static HTML/CSS/JS</td>
+                <td>Free, fast, no server to maintain.</td>
+              </tr>
+              <tr>
+                <td><b>Pages</b></td>
+                <td>
+                  Self-contained: CSS in &lt;style&gt;, JS at the bottom of each
+                  page
+                </td>
+                <td>
+                  Zero build step, zero broken imports; owner can edit one file
+                  in Notepad.
+                </td>
+              </tr>
+              <tr>
+                <td><b>JavaScript</b></td>
+                <td>ES5-style IIFE, no frameworks, no dependencies</td>
+                <td>Loads instantly, never breaks from a CDN outage.</td>
+              </tr>
+              <tr>
+                <td><b>Blog engine</b></td>
+                <td>
+                  <code>blogs/data.json</code> is the single source of truth
+                </td>
+                <td>
+                  One JSON entry updates homepage teaser, blog grid, filters and
+                  related posts.
+                </td>
+              </tr>
+              <tr>
+                <td><b>Forms</b></td>
+                <td>
+                  fetch POST to Google Apps Script, saves to Sheets + emails the
+                  founder
+                </td>
+                <td>
+                  Honeypot field "company" silently absorbs bots. SCRIPT_URL
+                  lives in index.html.
+                </td>
+              </tr>
+              <tr>
+                <td><b>Analytics</b></td>
+                <td>
+                  GA4 + Meta Pixel, routed through Google Tag Manager when
+                  deployed
+                </td>
+                <td>
+                  Cookie policy on terms.html already covers them. Never
+                  hardcode pixels outside GTM.
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <h3>Page Map</h3>
+          <p
+            style="
+              font-family: var(--mono);
+              font-size: 0.76rem;
+              line-height: 2;
+              color: var(--white-dim);
+            "
+          >
+            index.html · blog.html · terms.html (#terms #refund #privacy
+            #cookies) · brand-design-system.html (this file) · blogs/post-N.html
+            · blogs/data.json · assets/blog/ thumbnails ·
+            google-apps-script/Code.gs
+          </p>
+
+          <h3>Non-Negotiable Patterns</h3>
+          <div class="dgrid g2">
+            <div class="dcard">
+              <h4>Image Fallback Chain</h4>
+              <p>
+                Every Wix-hosted image carries onerror handling; the logo falls
+                back local file to CDN to hidden. Image boxes show the branded
+                placeholder when a source dies — the site never shows a
+                broken-image icon.
+              </p>
+            </div>
+            <div class="dcard">
+              <h4>One H1 Per Page</h4>
+              <p>
+                Exactly one h1, OG tags on every page, descriptive alt text
+                everywhere, noindex on legal and internal docs. Headings nest in
+                order — no skipping levels for styling reasons.
+              </p>
+            </div>
+            <div class="dcard">
+              <h4>Accessibility Floor</h4>
+              <p>
+                aria-expanded on accordions and the burger, focus-visible never
+                removed, contrast per Section 03, prefers-reduced-motion fully
+                honoured, touch targets 44px minimum.
+              </p>
+            </div>
+            <div class="dcard">
+              <h4>Token Discipline</h4>
+              <p>
+                No raw hex in component CSS — only var(--token). New colours
+                don't get invented; if a value isn't in Section 13, it doesn't
+                exist. Run a hex-grep before every ship.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 13 DESIGN TOKENS ============ -->
+      <section class="dsec" id="tokens">
+        <div class="container">
+          <div class="dsec-num">Section 13</div>
+          <h2 class="dsec-title">Design <span class="t-red">Tokens</span></h2>
+          <p class="dsec-intro">
+            The canonical copy-paste. Every surface — web, email, deck templates
+            — derives from these values and nothing else.
+          </p>
+          <div class="codeblock">
+            <pre><span class="cc">/* The Muscle Engineer — Design Tokens v1.0 */</span>
+<span class="ck">:root</span>{
+  <span class="cc">/* Colour */</span>
+  --red:        <span class="ck">#E8221A</span>;   <span class="cc">/* Engine Red — the only red */</span>
+  --red-dark:   <span class="ck">#C01A14</span>;   <span class="cc">/* hover / active only */</span>
+  --red-dim:    rgba(232,34,26,.10);
+  --black:      <span class="ck">#050505</span>;   <span class="cc">/* page base */</span>
+  --ink:        <span class="ck">#0D0D0D</span>;   <span class="cc">/* alternating sections */</span>
+  --dark:       <span class="ck">#161616</span>;   <span class="cc">/* cards, surfaces, fields */</span>
+  --mid:        <span class="ck">#222222</span>;   <span class="cc">/* borders, dividers */</span>
+  --white:      <span class="ck">#F8F8F6</span>;   <span class="cc">/* warm white — never #FFFFFF */</span>
+  --white-dim:  rgba(248,248,246,.65);
+  --white-mute: rgba(248,248,246,.28);
+
+  <span class="cc">/* Type */</span>
+  --bebas: 'Bebas Neue', sans-serif;     <span class="cc">/* display, 400, uppercase */</span>
+  --body:  'Inter', sans-serif;          <span class="cc">/* 300 body, 600-700 emphasis */</span>
+  --mono:  'Space Mono', monospace;      <span class="cc">/* labels, data, buttons */</span>
+
+  <span class="cc">/* Motion */</span>
+  --ease: cubic-bezier(.22,.86,.36,1);   <span class="cc">/* the one easing */</span>
+  <span class="cc">/* reveal .8s | cards .3s | ripple 600ms | counters 1800ms | marquee 28s */</span>
+
+  <span class="cc">/* Shape and rhythm */</span>
+  <span class="cc">/* radius 0 everywhere | button clip 13px corner | spacing in 4px steps */</span>
+  <span class="cc">/* container 1280px | breakpoints 901 / 768 / 480 */</span>
+}
+<span class="cc">/* Legacy Red #aa1e22 — retired. Existing print only. Never in new work. */</span></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 14 RULES ============ -->
+      <section class="dsec" id="rules">
+        <div class="container">
+          <div class="dsec-num">Section 14</div>
+          <h2 class="dsec-title">
+            Do's &amp; <span class="t-red">Don'ts</span>
+          </h2>
+          <p class="dsec-intro">
+            The non-negotiables, paired. Every collaborator — developer,
+            designer, intern, agency — signs off on these before shipping
+            anything.
+          </p>
+          <div class="dgrid g2">
+            <div class="rule rule-do">
+              <div class="r-head">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Use official logo files only
+              </div>
+              <p>
+                Every icon placement comes from the master exports in Section
+                15, in red, white or black, on an approved background, with 1x
+                clear space.
+              </p>
+            </div>
+            <div class="rule rule-dont">
+              <div class="r-head">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  aria-hidden="true"
+                >
+                  <path d="M18 6 6 18" />
+                  <path d="m6 6 12 12" /></svg
+                >Never redraw the icon
+              </div>
+              <p>
+                No tracing, no AI regeneration, no "cleaner version", no
+                simplification. The M, the E, the person, the arrows — locked
+                forever.
+              </p>
+            </div>
+            <div class="rule rule-do">
+              <div class="r-head">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >One red: #E8221A
+              </div>
+              <p>
+                Engine Red in every new asset, kept near 10% of any composition.
+                Hover state is #C01A14 and nothing else.
+              </p>
+            </div>
+            <div class="rule rule-dont">
+              <div class="r-head">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  aria-hidden="true"
+                >
+                  <path d="M18 6 6 18" />
+                  <path d="m6 6 12 12" /></svg
+                >No green, no new hues
+              </div>
+              <p>
+                No green success states, no blue links, no gradients between
+                hues, no Legacy Red #aa1e22 in new work. The palette is closed.
+              </p>
+            </div>
+            <div class="rule rule-do">
+              <div class="r-head">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Three fonts, three jobs
+              </div>
+              <p>
+                Bebas Neue displays, Inter explains, Space Mono labels. Loaded
+                from Google Fonts with display=swap.
+              </p>
+            </div>
+            <div class="rule rule-dont">
+              <div class="r-head">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  aria-hidden="true"
+                >
+                  <path d="M18 6 6 18" />
+                  <path d="m6 6 12 12" /></svg
+                >No Cambria, no new fonts
+              </div>
+              <p>
+                Cambria retired with the legacy lockup. No Canva default fonts
+                sneaking into social posts. No bold or italic Bebas — it has
+                neither.
+              </p>
+            </div>
+            <div class="rule rule-do">
+              <div class="r-head">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Asterisk discipline
+              </div>
+              <p>
+                Every prominent "money back guarantee" claim carries a
+                superscript asterisk, a nearby "T&amp;C apply" footnote, and the
+                terms.html link. Web, social, decks — everywhere.
+              </p>
+            </div>
+            <div class="rule rule-dont">
+              <div class="r-head">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  aria-hidden="true"
+                >
+                  <path d="M18 6 6 18" />
+                  <path d="m6 6 12 12" /></svg
+                >No unconditional promises
+              </div>
+              <p>
+                Never "guaranteed results", never weight-loss numbers with
+                deadlines, never cure language — especially around PCOS. Claims
+                we can't evidence don't ship.
+              </p>
+            </div>
+            <div class="rule rule-do">
+              <div class="r-head">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Consent before publishing
+              </div>
+              <p>
+                Written client consent on file before any photo, result or
+                testimonial appears anywhere. Same pose, same light, honest
+                timeline on every before/after.
+              </p>
+            </div>
+            <div class="rule rule-dont">
+              <div class="r-head">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  aria-hidden="true"
+                >
+                  <path d="M18 6 6 18" />
+                  <path d="m6 6 12 12" /></svg
+                >No emojis, no fake physiques
+              </div>
+              <p>
+                Zero emojis on any surface including captions. Zero AI-generated
+                or retouched bodies — a guarantee brand survives on
+                believability.
+              </p>
+            </div>
+            <div class="rule rule-do">
+              <div class="r-head">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Sharp, dark, textured
+              </div>
+              <p>
+                Zero border-radius, black-family backgrounds, exactly one
+                whisper-opacity texture per surface, the 13px corner clip on red
+                CTAs.
+              </p>
+            </div>
+            <div class="rule rule-dont">
+              <div class="r-head">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  aria-hidden="true"
+                >
+                  <path d="M18 6 6 18" />
+                  <path d="m6 6 12 12" /></svg
+                >No light-mode drift
+              </div>
+              <p>
+                No white-background digital layouts, no rounded "friendly"
+                cards, no soft pastel rebrands for festive posts. Festivals get
+                our black and red too.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 15 ASSETS & GOVERNANCE ============ -->
+      <section class="dsec" id="assets">
+        <div class="container">
+          <div class="dsec-num">Section 15</div>
+          <h2 class="dsec-title">
+            Asset Vault &amp; <span class="t-red">Governance</span>
+          </h2>
+          <p class="dsec-intro">
+            Where everything lives, what must exist, and who decides. If an
+            asset isn't on this list, it isn't official.
+          </p>
+
+          <h3>Master File Checklist</h3>
+          <div class="tbl-wrap">
+            <table class="ds-table">
+              <tr>
+                <th>File</th>
+                <th>Spec</th>
+                <th>Status</th>
+                <th>Used For</th>
+              </tr>
+              <tr>
+                <td><code>logo.png</code></td>
+                <td><b>1024 x 1024</b>, transparent, red icon</td>
+                <td class="t-pass">Required - Added in code</td>
+                <td>
+                  Everything digital — site header, this document, favicon
+                  source
+                </td>
+              </tr>
+              <tr>
+                <td>logo-1.png</td>
+                <td>1024 x 1024, transparent red and block icon</td>
+                <td>In code, use for white background</td>
+                <td>For all white background</td>
+              </tr>
+              <tr>
+                <td><code>logo-white.png</code></td>
+                <td>1024 x 1024, transparent, white icon</td>
+                <td>Recommended</td>
+                <td>Red and photo backgrounds in social and print tools. Update comment: Not used in code</td>
+              </tr>
+
+              <tr>
+                <td><code>logo-black.png</code></td>
+                <td>1024 x 1024, transparent, black icon</td>
+                <td>Recommended</td>
+                <td>White and light print: invoices, letterheads. Update comment: Not used in code</td>
+              </tr>
+              <tr>
+                <td><code>logo-lockup-legacy.png</code></td>
+                <td>Original designer export, 1000px+ wide</td>
+                <td>Archive</td>
+                <td>Record-keeping; existing print reference only. Update comment before PROD: As it was the same in that is left as same as current.</td>
+              </tr>
+              <tr>
+                <td><code>og-image</code></td>
+                <td>1200 x 630, black bg, digital lockup</td>
+                <td>Recommended</td>
+                <td>Link previews across the web</td>
+              </tr>
+              <tr>
+                <td>Vector master (SVG / AI)</td>
+                <td>Request from the original designer</td>
+                <td>To acquire</td>
+                <td>Future print at any size; the ultimate source of truth</td>
+              </tr>
+
+            </table>
+          </div>
+
+          <h3>Governance</h3>
+          <div class="dgrid g3">
+            <div class="dcard">
+              <h4>Owner</h4>
+              <p>
+                Coach Amar (Amarnath A) holds final sign-off on every brand
+                decision. Questions and exception requests:
+                <a href="mailto:founder.themuscleengineer@gmail.com"
+                  >founder.themuscleengineer@gmail.com</a
+                >
+              </p>
+            </div>
+            <div class="dcard">
+              <h4>Versioning</h4>
+              <p>
+                This is v1.0, June 2026. Changes happen in this file only, with
+                the version and date updated in the hero. No team keeps a
+                private copy of the rules.
+              </p>
+            </div>
+            <div class="dcard">
+              <h4>Pre-Ship Checklist</h4>
+              <p>
+                Official logo file. Engine Red only. Three fonts only. Asterisk
+                on guarantee claims. Consent on client imagery. No emojis. If
+                any box fails — it doesn't ship.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="dcallout"
+            style="margin-top: 34px; border-left-width: 4px"
+          >
+            <strong
+              style="
+                font-family: var(--bebas);
+                font-weight: 400;
+                font-size: 1.5rem;
+                letter-spacing: 0.03em;
+              "
+              >Every rep counts. Every pixel too.</strong
+            ><br />When in doubt, ask one question: does this look like it was
+            engineered — or decorated? If it's decorated, start again.
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+      <div class="container">
+        <div class="f-cols">
+          <div class="f-brand">
+            <a class="brand" href="index.html">
+              <img
+                src="logo.png"
+                alt="The Muscle Engineer logo"
+                width="42"
+                height="42"
+                loading="lazy"
+                onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='https://static.wixstatic.com/media/e5091e_c1bac369cae741d08b2e7e9c95df371b~mv2.png/v1/fill/w_84,h_84,al_c,q_85,enc_avif,quality_auto/e5091e_c1bac369cae741d08b2e7e9c95df371b~mv2.png'}else{this.style.display='none'}"
+              />
+              <span class="brand-name"
+                >The Muscle <em>Engineer</em><sup>&reg;</sup></span
+              >
+            </a>
+            <p>
+              Brand &amp; Design System v1.0 — the single source of truth for
+              every team building The Muscle Engineer.
+            </p>
+            <div class="socials">
+              <a
+                class="soc"
+                href="https://instagram.com/themuscleengineer"
+                target="_blank"
+                rel="noopener"
+                aria-label="Instagram"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+              </a>
+              <a
+                class="soc"
+                href="https://wa.me/919788966664"
+                target="_blank"
+                rel="noopener"
+                aria-label="WhatsApp"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  stroke="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"
+                  />
+                </svg>
+              </a>
+              <a
+                class="soc"
+                href="mailto:founder.themuscleengineer@gmail.com"
+                aria-label="Email"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect width="20" height="16" x="2" y="4" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="f-col">
+            <h4>Navigate</h4>
+            <ul>
+              <li><a href="index.html#about">About</a></li>
+              <li><a href="index.html#services">Services</a></li>
+              <li><a href="index.html#plans">Plans</a></li>
+              <li><a href="index.html#results">Results</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="index.html#faq">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="f-col">
+            <h4>This Document</h4>
+            <ul>
+              <li><a href="#brand">Brand Core</a></li>
+              <li><a href="#logo">Logo System</a></li>
+              <li><a href="#tokens">Design Tokens</a></li>
+              <li><a href="#rules">Do's &amp; Don'ts</a></li>
+              <li><a href="#assets">Asset Vault</a></li>
+            </ul>
+          </div>
+          <div class="f-col">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="terms.html#terms">Terms &amp; Conditions</a></li>
+              <li><a href="terms.html#privacy">Privacy Policy</a></li>
+              <li><a href="terms.html#refund">Refund Policy</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="f-bottom">
+          <p>
+            &copy; <span id="year">2026</span> The Muscle Engineer. Internal
+            document.
+          </p>
+          <div class="f-legal">
+            <span
+              style="
+                font-family: var(--mono);
+                font-size: 0.62rem;
+                letter-spacing: 0.18em;
+                color: var(--white-mute);
+                text-transform: uppercase;
+              "
+              >Ignite · Improve · Inspire</span
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        "use strict";
+
+        var reduceMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches;
+        var isTouch = window.matchMedia("(hover: none)").matches;
+
+        /* ---------- footer year ---------- */
+        var yearEl = document.getElementById("year");
+        if (yearEl) {
+          yearEl.textContent = new Date().getFullYear();
+        }
+
+        /* ---------- navbar scrolled state ---------- */
+        var nav = document.getElementById("nav");
+        function onNavScroll() {
+          if (!nav) {
+            return;
+          }
+          if (window.scrollY > 40) {
+            nav.classList.add("scrolled");
+          } else {
+            nav.classList.remove("scrolled");
+          }
+        }
+        window.addEventListener("scroll", onNavScroll, { passive: true });
+        onNavScroll();
+
+        /* ---------- mobile menu ---------- */
+        var burger = document.getElementById("burger");
+        var mMenu = document.getElementById("mMenu");
+        function closeMenu() {
+          if (!burger || !mMenu) {
+            return;
+          }
+          burger.classList.remove("open");
+          mMenu.classList.remove("open");
+          burger.setAttribute("aria-expanded", "false");
+          mMenu.setAttribute("aria-hidden", "true");
+          document.body.style.overflow = "";
+        }
+        if (burger && mMenu) {
+          burger.addEventListener("click", function () {
+            var isOpen = mMenu.classList.toggle("open");
+            burger.classList.toggle("open", isOpen);
+            burger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            mMenu.setAttribute("aria-hidden", isOpen ? "false" : "true");
+            document.body.style.overflow = isOpen ? "hidden" : "";
+          });
+          var mLinks = mMenu.querySelectorAll("a");
+          for (var i = 0; i < mLinks.length; i++) {
+            mLinks[i].addEventListener("click", closeMenu);
+          }
+        }
+
+        /* ---------- custom cursor ---------- */
+        var dot = document.getElementById("cursor-dot");
+        var ring = document.getElementById("cursor-ring");
+        if (dot && ring && !isTouch) {
+          var mx = -100,
+            my = -100,
+            rx = -100,
+            ry = -100;
+          var lerp = reduceMotion ? 1 : 0.16;
+          document.addEventListener("mousemove", function (e) {
+            mx = e.clientX;
+            my = e.clientY;
+            dot.style.left = mx + "px";
+            dot.style.top = my + "px";
+          });
+          (function loop() {
+            rx += (mx - rx) * lerp;
+            ry += (my - ry) * lerp;
+            ring.style.left = rx + "px";
+            ring.style.top = ry + "px";
+            window.requestAnimationFrame(loop);
+          })();
+          var hoverSel = "a, button, input, select, textarea, .swatch, .abtn";
+          document.addEventListener("mouseover", function (e) {
+            if (e.target.closest && e.target.closest(hoverSel)) {
+              ring.classList.add("is-hover");
+            }
+          });
+          document.addEventListener("mouseout", function (e) {
+            if (e.target.closest && e.target.closest(hoverSel)) {
+              ring.classList.remove("is-hover");
+            }
+          });
+          document.addEventListener("mouseleave", function () {
+            document.body.classList.add("cursor-hidden");
+          });
+          document.addEventListener("mouseenter", function () {
+            document.body.classList.remove("cursor-hidden");
+          });
+        }
+
+        /* ---------- scroll reveal (safe if unused) ---------- */
+        var revealEls = document.querySelectorAll(
+          ".reveal, .reveal-l, .reveal-r"
+        );
+        if (revealEls.length) {
+          if (reduceMotion || !("IntersectionObserver" in window)) {
+            for (var r = 0; r < revealEls.length; r++) {
+              revealEls[r].classList.add("in");
+            }
+          } else {
+            var revIO = new IntersectionObserver(
+              function (entries) {
+                for (var j = 0; j < entries.length; j++) {
+                  if (entries[j].isIntersecting) {
+                    entries[j].target.classList.add("in");
+                    revIO.unobserve(entries[j].target);
+                  }
+                }
+              },
+              { threshold: 0.1 }
+            );
+            for (var k = 0; k < revealEls.length; k++) {
+              revIO.observe(revealEls[k]);
+            }
+          }
+        }
+
+        /* ---------- anchor bar scrollspy ---------- */
+        var abtns = document.querySelectorAll(".abtn, .drail-link");
+        var spyTargets = [];
+        for (var a = 0; a < abtns.length; a++) {
+          var href = abtns[a].getAttribute("href");
+          if (href && href.charAt(0) === "#") {
+            var sec = document.getElementById(href.slice(1));
+            if (sec) {
+              spyTargets.push({ btn: abtns[a], sec: sec });
+            }
+          }
+        }
+        function onSpy() {
+          if (!spyTargets.length) {
+            return;
+          }
+          var pos = window.scrollY + 150;
+          var current = null;
+          for (var s = 0; s < spyTargets.length; s++) {
+            if (spyTargets[s].sec.offsetTop <= pos) {
+              current = spyTargets[s];
+            }
+          }
+          for (var t = 0; t < spyTargets.length; t++) {
+            if (spyTargets[t] === current) {
+              spyTargets[t].btn.classList.add("active");
+            } else {
+              spyTargets[t].btn.classList.remove("active");
+            }
+          }
+        }
+        window.addEventListener("scroll", onSpy, { passive: true });
+        onSpy();
+
+        /* ---------- swatch click-to-copy ---------- */
+        function copyText(text, done) {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(done, function () {
+              legacyCopy(text);
+              done();
+            });
+          } else {
+            legacyCopy(text);
+            done();
+          }
+        }
+        function legacyCopy(text) {
+          var ta = document.createElement("textarea");
+          ta.value = text;
+          ta.style.position = "fixed";
+          ta.style.opacity = "0";
+          document.body.appendChild(ta);
+          ta.select();
+          try {
+            document.execCommand("copy");
+          } catch (e) {
+            /* no-op */
+          }
+          document.body.removeChild(ta);
+        }
+        var swatches = document.querySelectorAll(".swatch");
+        for (var w = 0; w < swatches.length; w++) {
+          (function (el) {
+            el.addEventListener("click", function () {
+              var hex = el.getAttribute("data-hex");
+              if (!hex) {
+                return;
+              }
+              copyText(hex, function () {
+                el.classList.add("show-copied");
+                window.setTimeout(function () {
+                  el.classList.remove("show-copied");
+                }, 1200);
+              });
+            });
+          })(swatches[w]);
+        }
+
+        /* ---------- demo counter ---------- */
+        var counters = document.querySelectorAll(".demo-count");
+        function runCounter(el) {
+          var target = parseInt(el.getAttribute("data-count"), 10) || 0;
+          if (reduceMotion) {
+            el.textContent = String(target);
+            return;
+          }
+          var dur = 1800;
+          var start = null;
+          function step(ts) {
+            if (!start) {
+              start = ts;
+            }
+            var p = Math.min((ts - start) / dur, 1);
+            var eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = String(Math.round(target * eased));
+            if (p < 1) {
+              window.requestAnimationFrame(step);
+            }
+          }
+          window.requestAnimationFrame(step);
+        }
+        if (counters.length) {
+          if (!("IntersectionObserver" in window) || reduceMotion) {
+            for (var c = 0; c < counters.length; c++) {
+              runCounter(counters[c]);
+            }
+          } else {
+            var cntIO = new IntersectionObserver(
+              function (entries) {
+                for (var q = 0; q < entries.length; q++) {
+                  if (entries[q].isIntersecting) {
+                    runCounter(entries[q].target);
+                    cntIO.unobserve(entries[q].target);
+                  }
+                }
+              },
+              { threshold: 0.4 }
+            );
+            for (var d = 0; d < counters.length; d++) {
+              cntIO.observe(counters[d]);
+            }
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>

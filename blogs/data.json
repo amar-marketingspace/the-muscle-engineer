@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "title": "The Science of Fat Loss: What Actually Works in 2026",
+    "slug": "science-of-fat-loss",
+    "excerpt": "Forget detox teas and crash diets. Here is what the evidence — and 130+ real transformations — say actually drives sustainable fat loss, and how to set up your first 100 days.",
+    "category": "Fat Loss",
+    "date": "2026-08-25",
+    "readTime": "7 min read",
+    "thumbnail": "assets/blog/Img blog post 1.avif",
+    "file": "blogs/post-1.html",
+    "author": "Coach Amar",
+    "tags": ["fat loss", "nutrition", "calorie deficit", "metabolism"]
+  },
+  {
+    "id": 2,
+    "title": "Building Muscle Naturally: A Realistic Guide for Indian Diets",
+    "slug": "muscle-gain-indian-diet",
+    "excerpt": "You do not need imported supplements or six chicken breasts a day. How to hit your protein targets with dal, paneer, eggs and soya — and train for real, natural muscle growth.",
+    "category": "Muscle Gain",
+    "date": "2025-05-12",
+    "readTime": "8 min read",
+    "thumbnail": "assets/blog/Img blog post 2.webp",
+    "file": "blogs/post-2.html",
+    "author": "Coach Amar",
+    "tags": ["muscle gain", "protein", "indian diet", "strength training"]
+  },
+  {
+    "id": 3,
+    "title": "PCOS and Fitness: How Training Helps You Take Back Control",
+    "slug": "pcos-and-fitness",
+    "excerpt": "PCOS affects a large share of Indian women, yet most advice is either fear or fluff. What strength training, smart nutrition and recovery can realistically do for your symptoms.",
+    "category": "Women's Health",
+    "date": "2024-03-09",
+    "readTime": "9 min read",
+    "thumbnail": "assets/blog/Img blog post 3.webp",
+    "file": "blogs/post-3.html",
+    "author": "Coach Amar",
+    "tags": ["pcos", "womens health", "hormones", "strength training"]
+  }
+]
